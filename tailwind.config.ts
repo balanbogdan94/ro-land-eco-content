@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom colors for Ro land organic
+				rolandGreen: {
+					light: '#41B85D',
+					DEFAULT: '#0B8A3A',
+					dark: '#076A2C'
+				},
+				beige: '#F5F2ED',
+				soil: '#6D4C34',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

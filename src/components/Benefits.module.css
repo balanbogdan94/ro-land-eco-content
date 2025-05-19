@@ -1,0 +1,21 @@
+
+.benefits {
+  @apply bg-beige;
+}
+
+.benefitItem {
+  @apply flex items-start gap-3 mb-4;
+}
+
+.benefitIcon {
+  @apply bg-rolandGreen rounded-full p-1 flex-shrink-0 mt-0.5;
+}
+
+.imageContainer {
+  @apply rounded-lg overflow-hidden shadow-xl;
+}
+
+.image {
+  @apply w-full h-full object-cover;
+  aspect-ratio: 4/3;
+}

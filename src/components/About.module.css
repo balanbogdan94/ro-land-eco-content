@@ -1,0 +1,30 @@
+
+.about {
+  @apply bg-beige;
+}
+
+.imageWrapper {
+  @apply rounded-lg overflow-hidden shadow-xl;
+  height: 100%;
+}
+
+.image {
+  @apply w-full h-full object-cover;
+  aspect-ratio: 4/3;
+}
+
+.stats {
+  @apply flex flex-wrap gap-6 mt-8;
+}
+
+.stat {
+  @apply flex flex-col;
+}
+
+.statNumber {
+  @apply text-2xl md:text-3xl font-bold text-rolandGreen;
+}
+
+.statLabel {
+  @apply text-gray-600;
+}

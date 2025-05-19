@@ -1,0 +1,28 @@
+
+.footer {
+  @apply bg-beige text-gray-800;
+}
+
+.socialLink {
+  @apply text-gray-600 hover:text-rolandGreen transition-colors;
+}
+
+.linkList {
+  @apply space-y-2;
+}
+
+.linkList li a {
+  @apply text-gray-600 hover:text-rolandGreen transition-colors;
+}
+
+.contactList {
+  @apply space-y-3;
+}
+
+.contactList li {
+  @apply flex items-center gap-3 text-gray-600;
+}
+
+.certBadge {
+  @apply bg-rolandGreen text-white text-xs px-2 py-1 rounded;
+}

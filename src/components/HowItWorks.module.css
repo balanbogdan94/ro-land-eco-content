@@ -1,0 +1,16 @@
+
+.howItWorks {
+  @apply bg-white;
+}
+
+.stepCard {
+  @apply relative bg-white p-8 rounded-lg shadow-md text-center transition-all hover:shadow-lg;
+}
+
+.stepIcon {
+  @apply bg-rolandGreen text-white p-4 rounded-full inline-flex items-center justify-center mb-6;
+}
+
+.stepNumber {
+  @apply absolute top-4 right-4 text-4xl font-bold text-gray-100 opacity-50;
+}

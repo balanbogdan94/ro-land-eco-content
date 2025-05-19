@@ -1,0 +1,16 @@
+
+.navbar {
+  @apply sticky top-0 bg-white z-50 shadow-sm;
+}
+
+.logo {
+  @apply flex items-center;
+}
+
+.logo img {
+  @apply h-10 w-auto;
+}
+
+.navLink {
+  @apply text-gray-700 hover:text-rolandGreen transition-colors font-medium;
+}
