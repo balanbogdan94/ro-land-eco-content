@@ -14,3 +14,15 @@
 .navLink {
   @apply text-gray-700 hover:text-rolandGreen transition-colors font-medium;
 }
+
+.languageSwitcher {
+  @apply relative;
+}
+
+.languageButton {
+  @apply flex items-center text-gray-700 hover:text-rolandGreen transition-colors font-medium cursor-pointer px-2 py-1 rounded;
+}
+
+.flagIcon {
+  @apply mr-2 text-xl;
+}
