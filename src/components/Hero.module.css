@@ -1,11 +1,10 @@
-
 .hero {
-  @apply relative py-24 md:py-32 bg-gradient-to-br from-soil to-rolandGreen text-white;
-  background-image: linear-gradient(rgba(11, 138, 58, 0.7), rgba(109, 76, 52, 0.8)), url('/lovable-uploads/76a14629-e897-4631-aa85-262970859c27.png');
-  background-size: cover;
-  background-position: center;
+	@apply relative py-24 md:py-32 bg-gradient-to-br from-soil to-rolandGreen text-white;
+	background-image: url('/assets/hero.JPG');
+	background-size: cover;
+	background-position: center;
 }
 
 .content {
-  @apply max-w-3xl mx-auto text-center;
+	@apply max-w-3xl mx-auto text-center;
 }
