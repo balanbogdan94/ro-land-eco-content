@@ -8,7 +8,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Flag, Menu } from 'lucide-react';
-import styles from './Navbar.module.css';
 import { translations } from '@/utils/translations';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -31,23 +30,26 @@ const Navbar: React.FC = () => {
 	];
 
 	return (
-		<nav className={styles.navbar} style={{ backgroundColor: '#fff' }}>
+		<nav className='sticky top-0 bg-white z-50 shadow-sm'>
 			<div className='container-custom flex items-center justify-between py-4'>
-				<div className={styles.logo}>
+				<div className='flex items-center'>
 					<span className='text-xl font-bold'>
 						RO LAND <span className='text-rolandGreen'>ORGANIC</span>
 					</span>
 				</div>
 
 				{/* Desktop Navigation */}
-				<div className='hidden md:flex items-center space-x-6'>
+				<div className='hidden md:flex items-end space-x-6'>
 					{navItems.map((item) => (
-						<a key={item.key} href={item.href} className={styles.navLink}>
+						<a
+							key={item.key}
+							href={item.href}
+							className=' text-gray-700 hover:text-rolandGreen transition-colors font-medium'>
 							{translations[item.key as keyof typeof translations][language]}
 						</a>
 					))}
 
-					<div className={styles.languageSwitcher}>
+					{/* <div className={styles.languageSwitcher}>
 						<DropdownMenu>
 							<DropdownMenuTrigger className={styles.languageButton}>
 								{language === 'ro' ? (
@@ -76,13 +78,13 @@ const Navbar: React.FC = () => {
 								</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
-					</div>
+					</div> */}
 				</div>
 
 				{/* Mobile View Icons */}
 				<div className='flex items-center space-x-4 md:hidden'>
 					{/* Mobile Language Switcher */}
-					<div className={styles.languageSwitcher}>
+					{/* <div className={styles.languageSwitcher}>
 						<DropdownMenu>
 							<DropdownMenuTrigger className={styles.languageButton}>
 								{language === 'ro' ? (
@@ -111,7 +113,7 @@ const Navbar: React.FC = () => {
 								</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
-					</div>
+					</div> */}
 
 					{/* Mobile Menu Trigger */}
 					<Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
@@ -126,7 +128,7 @@ const Navbar: React.FC = () => {
 									<a
 										key={item.key}
 										href={item.href}
-										className={`${styles.navLink} text-lg py-2`}
+										className=' text-gray-700 hover:text-rolandGreen transition-colors font-medium text-lg py-2'
 										onClick={() => setIsMenuOpen(false)}>
 										{
 											translations[item.key as keyof typeof translations][
@@ -143,7 +145,7 @@ const Navbar: React.FC = () => {
 											.getElementById('contact')
 											?.scrollIntoView({ behavior: 'smooth' });
 									}}>
-									{translations.requestOffer[language]}
+									Solicită Ofertă
 								</Button>
 							</div>
 						</SheetContent>
@@ -151,7 +153,7 @@ const Navbar: React.FC = () => {
 				</div>
 
 				{/* Desktop CTA Button */}
-				<Button
+				{/* <Button
 					className='btn-primary hidden md:inline-flex'
 					onClick={(e) => {
 						document
@@ -159,7 +161,7 @@ const Navbar: React.FC = () => {
 							?.scrollIntoView({ behavior: 'smooth' });
 					}}>
 					{translations.requestOffer[language]}
-				</Button>
+				</Button> */}
 			</div>
 		</nav>
 	);
