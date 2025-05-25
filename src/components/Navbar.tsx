@@ -7,17 +7,15 @@ import {
 	DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Flag, Menu } from 'lucide-react';
-import { translations } from '@/utils/translations';
-import { useLanguage } from '@/context/LanguageContext';
+import { Menu } from 'lucide-react';
+import { useTranslations } from '@/context/LanguageContext';
 
 const Navbar: React.FC = () => {
-	const { language, setLanguage } = useLanguage();
+	const { language, setLanguage, t } = useTranslations();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 	const handleLanguageChange = (lang: 'ro' | 'en') => {
 		setLanguage(lang);
-		console.log(`Language changed to: ${lang}`);
 	};
 
 	const navItems = [
@@ -45,76 +43,37 @@ const Navbar: React.FC = () => {
 							key={item.key}
 							href={item.href}
 							className=' text-gray-700 hover:text-rolandGreen transition-colors font-medium'>
-							{translations[item.key as keyof typeof translations][language]}
+							{t(item.key)}
 						</a>
 					))}
 
-					{/* <div className={styles.languageSwitcher}>
-						<DropdownMenu>
-							<DropdownMenuTrigger className={styles.languageButton}>
-								{language === 'ro' ? (
-									<span className={styles.flagIcon}>🇷🇴</span>
-								) : (
-									<span className={styles.flagIcon}>🇬🇧</span>
-								)}
-								<span>{language === 'ro' ? 'RO' : 'EN'}</span>
-							</DropdownMenuTrigger>
-							<DropdownMenuContent align='end'>
-								<DropdownMenuItem
-									className={`flex items-center ${
-										language === 'ro' ? 'bg-muted' : ''
-									}`}
-									onClick={() => handleLanguageChange('ro')}>
-									<span className={styles.flagIcon}>🇷🇴</span>
-									<span>Română</span>
-								</DropdownMenuItem>
-								<DropdownMenuItem
-									className={`flex items-center ${
-										language === 'en' ? 'bg-muted' : ''
-									}`}
-									onClick={() => handleLanguageChange('en')}>
-									<span className={styles.flagIcon}>🇬🇧</span>
-									<span>English</span>
-								</DropdownMenuItem>
-							</DropdownMenuContent>
-						</DropdownMenu>
-					</div> */}
+					{/* Language Switcher */}
+					<DropdownMenu>
+						<DropdownMenuTrigger asChild>
+							<Button
+								variant='ghost'
+								className='flex items-center gap-2 text-gray-700 hover:text-rolandGreen transition-colors'>
+								<span>{language === 'ro' ? '🇷🇴' : '🇬🇧'}</span>
+								{language === 'ro' ? 'RO' : 'EN'}
+							</Button>
+						</DropdownMenuTrigger>
+						<DropdownMenuContent align='end'>
+							<DropdownMenuItem
+								onClick={() => handleLanguageChange('ro')}
+								className='cursor-pointer'>
+								<span className='mr-2'>🇷🇴</span> Română
+							</DropdownMenuItem>
+							<DropdownMenuItem
+								onClick={() => handleLanguageChange('en')}
+								className='cursor-pointer'>
+								<span className='mr-2'>🇬🇧</span> English
+							</DropdownMenuItem>
+						</DropdownMenuContent>
+					</DropdownMenu>
 				</div>
 
 				{/* Mobile View Icons */}
 				<div className='flex items-center space-x-4 md:hidden'>
-					{/* Mobile Language Switcher */}
-					{/* <div className={styles.languageSwitcher}>
-						<DropdownMenu>
-							<DropdownMenuTrigger className={styles.languageButton}>
-								{language === 'ro' ? (
-									<span className={styles.flagIcon}>🇷🇴</span>
-								) : (
-									<span className={styles.flagIcon}>🇬🇧</span>
-								)}
-								<span>{language === 'ro' ? 'RO' : 'EN'}</span>
-							</DropdownMenuTrigger>
-							<DropdownMenuContent align='end'>
-								<DropdownMenuItem
-									className={`flex items-center ${
-										language === 'ro' ? 'bg-muted' : ''
-									}`}
-									onClick={() => handleLanguageChange('ro')}>
-									<span className={styles.flagIcon}>🇷🇴</span>
-									<span>Română</span>
-								</DropdownMenuItem>
-								<DropdownMenuItem
-									className={`flex items-center ${
-										language === 'en' ? 'bg-muted' : ''
-									}`}
-									onClick={() => handleLanguageChange('en')}>
-									<span className={styles.flagIcon}>🇬🇧</span>
-									<span>English</span>
-								</DropdownMenuItem>
-							</DropdownMenuContent>
-						</DropdownMenu>
-					</div> */}
-
 					{/* Mobile Menu Trigger */}
 					<Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
 						<SheetTrigger asChild>
@@ -130,11 +89,7 @@ const Navbar: React.FC = () => {
 										href={item.href}
 										className=' text-gray-700 hover:text-rolandGreen transition-colors font-medium text-lg py-2'
 										onClick={() => setIsMenuOpen(false)}>
-										{
-											translations[item.key as keyof typeof translations][
-												language
-											]
-										}
+										{t(item.key)}
 									</a>
 								))}
 								<Button
@@ -147,21 +102,41 @@ const Navbar: React.FC = () => {
 									}}>
 									Solicită Ofertă
 								</Button>
+
+								{/* Language Switcher in Mobile Menu */}
+								<div className='flex items-center justify-between mt-6 pt-4 border-t border-gray-200'>
+									<span className='text-gray-700 font-medium'>
+										{language === 'ro' ? 'Limbă' : 'Language'}
+									</span>
+									<div className='flex gap-3'>
+										<Button
+											variant={language === 'ro' ? 'default' : 'outline'}
+											size='sm'
+											className={`flex items-center gap-1 ${
+												language === 'ro'
+													? 'bg-rolandGreen text-white'
+													: 'text-gray-700'
+											}`}
+											onClick={() => handleLanguageChange('ro')}>
+											<span>🇷🇴</span> RO
+										</Button>
+										<Button
+											variant={language === 'en' ? 'default' : 'outline'}
+											size='sm'
+											className={`flex items-center gap-1 ${
+												language === 'en'
+													? 'bg-rolandGreen text-white'
+													: 'text-gray-700'
+											}`}
+											onClick={() => handleLanguageChange('en')}>
+											<span>🇬🇧</span> EN
+										</Button>
+									</div>
+								</div>
 							</div>
 						</SheetContent>
 					</Sheet>
 				</div>
-
-				{/* Desktop CTA Button */}
-				{/* <Button
-					className='btn-primary hidden md:inline-flex'
-					onClick={(e) => {
-						document
-							.getElementById('contact')
-							?.scrollIntoView({ behavior: 'smooth' });
-					}}>
-					{translations.requestOffer[language]}
-				</Button> */}
 			</div>
 		</nav>
 	);
