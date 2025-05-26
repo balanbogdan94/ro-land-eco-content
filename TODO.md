@@ -16,7 +16,6 @@
 ### Hero page
 
 - [ ] Change picture
-- [ ] TBC: Title
 - [ ] Change menu items
 - [ ] Refactor button for language
 - [ ] Change pictures
