@@ -45,3 +45,9 @@
 - [x] update photos
 - [x] update descriptions
 - [ ] Check loadtime for big size photos
+
+## Certifications
+
+- [x] Add certifications
+- [x] Add text
+- [x] Add logos
