@@ -1,4 +1,78 @@
+/* Container input-like pentru dropdown produse */
+.dropdownInput {
+  background-color: white;
+  border: 1px solid #d1d5db; /* Tailwind gray-300 */
+  border-radius: 0.375rem; /* 6px */
+  padding: 0.5rem 0.75rem; /* 8px 12px */
+  min-height: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s ease;
+}
 
-.contact {
-  @apply bg-white;
+.dropdownInput:focus-within,
+.dropdownInput:hover {
+  border-color: #059669; /* Tailwind green-600 */
+  outline: none;
+}
+
+/* Tag produs selectat */
+.dropdownInput > div {
+  background-color: #059669; /* Tailwind green-600 */
+  color: white;
+  border-radius: 9999px; /* fully rounded */
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+  user-select: none;
+}
+
+/* Buton x pentru eliminare produs */
+.dropdownInput > div > button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdownInput > div > button:hover {
+  color: #d1d5db; /* gray-300 */
+}
+
+/* Dropdown lista checkboxuri */
+.dropdown-list {
+  position: absolute;
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-height: 12rem;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.dropdown-list label {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.dropdown-list label:hover {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
 }
