@@ -51,3 +51,10 @@
 - [x] Add certifications
 - [x] Add text
 - [x] Add logos
+
+## Footer
+
+- [x] Update footer
+- [x] Remove products
+- [x] Update Certifications
+- [x] Update Ro Land Text
