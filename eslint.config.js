@@ -14,8 +14,9 @@ export default tseslint.config({
     'import/resolver': {
       typescript: {
         alwaysTryTypes: true,
-        project: './tsconfig.json',
+        project: ['./tsconfig.app.json'],
       },
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
   },
 
@@ -30,7 +31,7 @@ export default tseslint.config({
     },
   },
   plugins: {
-    'import-plugin': importPlugin,
+    import: importPlugin,
     'react-hooks': reactHooks,
     'react-refresh': reactRefresh,
   },
@@ -42,7 +43,7 @@ export default tseslint.config({
     'max-lines': ['error', { max: 150, skipComments: true }],
     'max-lines-per-function': ['error', { max: 50, skipComments: true }],
     'max-params': ['error', { max: 5 }],
-    'import-plugin/no-unresolved': 'error',
-    'import-plugin/no-default-export': 'error',
+    'import/no-unresolved': 'error',
+    'import/no-default-export': 'error',
   },
 });
