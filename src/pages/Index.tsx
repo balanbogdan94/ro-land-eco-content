@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
+import { Hero } from '@/components/Hero';
+import { About } from '@/components/About';
 import Products from '@/components/Products';
 import Benefits from '@/components/Benefits';
 import HowItWorks from '@/components/HowItWorks';

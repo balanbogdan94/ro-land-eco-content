@@ -9,7 +9,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 export default tseslint.config({
-  ignores: ['dist', './src/components/ui/**'],
+  ignores: ['dist', './src/components/ui/**', '*.config.{js,ts}'],
   settings: {
     'import/resolver': {
       typescript: {
