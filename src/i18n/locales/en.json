@@ -1,10 +1,10 @@
 {
-	"about": "About Us",
-	"products": "Products",
-	"benefits": "Benefits",
-	"howItWorks": "How It Works",
-	"testimonials": "Testimonials",
-	"contact": "Contact",
-	"requestOffer": "Request Offer",
-	"language": "Language"
+  "about": "About Us",
+  "products": "Products",
+  "benefits": "Benefits",
+  "map": "Map",
+  "certifications": "Certifications",
+  "contact": "Contact",
+  "requestOffer": "Request Offer",
+  "language": "Language"
 }

@@ -26,20 +26,6 @@ export const About: React.FC = () => {
               sustenabile. Ne mândrim cu certificările obținute la nivel european și cu relațiile de
               lungă durată pe care le-am construit cu partenerii noștri.
             </p>
-            <div className={styles.stats}>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>15+</span>
-                <span className={styles.statLabel}>Ani de experiență</span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>1200</span>
-                <span className={styles.statLabel}>Hectare cultivate</span>
-              </div>
-              <div className={styles.stat}>
-                <span className={styles.statNumber}>100%</span>
-                <span className={styles.statLabel}>Ecologic</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>

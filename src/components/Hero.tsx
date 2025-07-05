@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import React from 'react';
 import { Button } from './ui/button';
 
@@ -50,7 +49,7 @@ export const Hero: React.FC = () => {
           onContextMenu={(e) => e.preventDefault()}
           onDragStart={(e) => e.preventDefault()}
         />
-        <div className="container-custom w-full flex flex-col justify-center items-center lg:items-start h-full gap-4 z-10">
+        <div className="container-custom w-full flex flex-col justify-end items-center lg:items-start h-full gap-4 z-10">
           <h1 className="heading-xl text-center md:text-left text-balance max-w-xs z-10">
             Natura livrată la tine acasă!
           </h1>

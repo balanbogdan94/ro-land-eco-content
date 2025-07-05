@@ -1,0 +1,61 @@
+import React from 'react';
+import { MapPin, Phone, Mail } from 'lucide-react';
+
+export const ContactMap: React.FC = () => (
+  <section id="contact" className="flex flex-col items-center py-20">
+    <div>
+      <h2 className="heading-lg mb-10">Contact</h2>
+    </div>
+    <div className="container-custom w-full">
+      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 md:gap-24">
+        {/* Pe mobil: harta sus, datele jos. Pe desktop: datele la stânga, harta la dreapta, la extremități */}
+        <div className="flex flex-col justify-center items-center md:items-start gap-6 md:gap-10 w-full md:max-w-[400px] text-base md:text-lg font-sans md:order-1">
+          <div className="flex flex-col md:flex-row items-center md:items-center gap-1 md:gap-4 w-full">
+            <MapPin className="text-rolandGreen min-w-6 min-h-6 w-6 h-6 md:w-7 md:h-7" />
+            <div className="text-center md:text-left">
+              <span className="font-semibold">Adresă:</span>
+              <br />
+              Comuna Adamclisi, Jud. Constanța, România
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row items-center md:items-center gap-1 md:gap-4 w-full">
+            <Phone className="text-rolandGreen min-w-6 min-h-6 w-6 h-6 md:w-7 md:h-7" />
+            <div className="text-center md:text-left">
+              <span className="font-semibold">Telefon:</span>
+              <br />
+              <a
+                href="tel:+40754123456"
+                className="text-rolandGreen hover:underline font-medium md:text-xl"
+              >
+                +40 754 123 456
+              </a>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row items-center md:items-center gap-1 md:gap-4 w-full">
+            <Mail className="text-rolandGreen min-w-6 min-h-6 w-6 h-6 md:w-7 md:h-7" />
+            <div className="text-center md:text-left">
+              <span className="font-semibold">Email:</span>
+              <br />
+              <a
+                href="mailto:contact@rolandorganic.ro"
+                className="text-rolandGreen hover:underline font-medium md:text-xl"
+              >
+                contact@rolandorganic.ro
+              </a>
+            </div>
+          </div>
+        </div>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11462.687617576308!2d27.95036659179336!3d44.09012617185345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40baa4e116cc9dcf%3A0x317f31956c1df67!2s907010%20Adamclisi!5e0!3m2!1sro!2sro!4v1751708809671!5m2!1sro!2sro"
+          width="100%"
+          height="350"
+          allowFullScreen={true}
+          className="radius-lg shadow-lg md:order-2 md:max-w-[600px] md:h-[350px] w-full h-[250px]"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Harta Adamclisi"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+);
