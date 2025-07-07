@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './About.module.css';
+import { useTranslations } from '@/context/LanguageContext';
 
 export const About: React.FC = () => {
+  const { t } = useTranslations();
   return (
     <section id="about" className={styles.about}>
       <div className="container-custom py-20">
@@ -9,23 +11,14 @@ export const About: React.FC = () => {
           <div className={styles.imageWrapper}>
             <img
               src="/assets/slideshow/Slideshow-3.JPG"
-              alt="Câmpuri cultivate ecologic"
+              alt={t('about.imageAlt')}
               className={styles.image}
             />
           </div>
           <div>
-            <h2 className="heading-lg mb-6">Despre Ro land organic</h2>
-            <p className="text-body mb-4">
-              Suntem o cooperativă agricolă formată din fermieri pasionați din zona Adamclisi,
-              Dobrogea. De peste 15 ani cultivăm cereale și semințe ecologice pe terenurile noastre
-              cu sol fertil și beneficiind de un climat ideal pentru agriculură.
-            </p>
-            <p className="text-body mb-4">
-              Cooperativa noastră s-a născut din dorința de a oferi produse de cea mai înaltă
-              calitate, respectând în același timp principiile agriculturii ecologice și
-              sustenabile. Ne mândrim cu certificările obținute la nivel european și cu relațiile de
-              lungă durată pe care le-am construit cu partenerii noștri.
-            </p>
+            <h2 className="heading-lg mb-6">{t('about.title')}</h2>
+            <p className="text-body mb-4">{t('about.p1')}</p>
+            <p className="text-body mb-4">{t('about.p2')}</p>
           </div>
         </div>
       </div>

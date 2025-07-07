@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button } from './ui/button';
+import { useTranslations } from '@/context/LanguageContext';
 
 const WaveSVG = () => (
   <svg
@@ -22,6 +23,7 @@ const WaveSVG = () => (
 );
 
 export const Hero: React.FC = () => {
+  const { t } = useTranslations();
   return (
     <section className="relative text-white h-screen ">
       <div className="px-4 sm:px-6 lg:px-8 bg-cover bg-center h-[75vh] sm:h-[80vh] lg:h-[85vh] relative py-24 md:py-32 ">
@@ -35,7 +37,7 @@ export const Hero: React.FC = () => {
           className="w-full absolute top-0 left-0 object-cover h-[75vh] sm:h-[80vh] lg:h-[85vh] z-0 pointer-events-none select-none transform translate-z-0 will-change-transform"
         >
           <source src="./assets/hero/hero.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
+          {t('hero.noVideoSupport')}
         </video>
 
         {/* Overlay de protecție */}
@@ -44,14 +46,14 @@ export const Hero: React.FC = () => {
             absolute inset-0 z-[1] 
             pointer-events-auto
             select-none
-						bg-gradient-to-b from-transparent to-black
+            bg-gradient-to-b from-transparent to-black
           "
           onContextMenu={(e) => e.preventDefault()}
           onDragStart={(e) => e.preventDefault()}
         />
         <div className="container-custom w-full flex flex-col justify-end items-center lg:items-start h-full gap-4 z-10">
           <h1 className="heading-xl text-center md:text-left text-balance max-w-xs z-10">
-            Natura livrată la tine acasă!
+            {t('hero.title')}
           </h1>
           <Button
             className="btn-primary max-w-52 text-lg w-auto z-10"
@@ -59,19 +61,18 @@ export const Hero: React.FC = () => {
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Solicită Ofertă
+            {t('hero.cta')}
           </Button>
         </div>
         <WaveSVG />
       </div>
 
       <div className="container-custom flex flex-col gap-2 ">
-        <h2 className="text-black text-xl lg:text-2xl font-bold">
-          Cereale ecologice cultivate în inima Dobrogei 🇷🇴
-        </h2>
-        <p className="text-lg md:text-xl text-black text-balance lg:max-w-xl">
-          De la fermieri români, direct către morile și fabricile de procesare din <b>Europa</b>.
-        </p>
+        <h2 className="text-black text-xl lg:text-2xl font-bold">{t('hero.subtitle')}</h2>
+        <p
+          className="text-lg md:text-xl text-black text-balance lg:max-w-xl"
+          dangerouslySetInnerHTML={{ __html: t('hero.desc') }}
+        />
       </div>
     </section>
   );

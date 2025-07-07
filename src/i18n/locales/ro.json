@@ -1,10 +1,19 @@
 {
   "about": "Despre Noi",
+  "about.title": "Despre Ro land organic",
+  "about.imageAlt": "Câmpuri cultivate ecologic",
+  "about.p1": "Suntem o cooperativă agricolă formată din fermieri pasionați din zona Adamclisi, Dobrogea. De peste 15 ani cultivăm cereale și semințe ecologice pe terenurile noastre cu sol fertil și beneficiind de un climat ideal pentru agriculură.",
+  "about.p2": "Cooperativa noastră s-a născut din dorința de a oferi produse de cea mai înaltă calitate, respectând în același timp principiile agriculturii ecologice și sustenabile. Ne mândrim cu certificările obținute la nivel european și cu relațiile de lungă durată pe care le-am construit cu partenerii noștri.",
   "products": "Produse",
   "benefits": "Beneficii",
   "map": "Hartă",
   "certifications": "Certificari",
   "contact": "Contact",
   "requestOffer": "Solicită Ofertă",
-  "language": "Limbă"
+  "language": "Limbă",
+  "hero.title": "Natura livrată la tine acasă!",
+  "hero.cta": "Solicită Ofertă",
+  "hero.subtitle": "Cereale ecologice cultivate în inima Dobrogei 🇷🇴",
+  "hero.desc": "De la fermieri români, direct către morile și fabricile de procesare din <strong>Europa</strong>.",
+  "hero.noVideoSupport": "Browserul tău nu suportă video."
 }
