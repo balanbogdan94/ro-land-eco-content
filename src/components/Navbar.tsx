@@ -67,13 +67,13 @@ export const Navbar: React.FC = () => {
                 onClick={() => handleLanguageChange('ro')}
                 className="cursor-pointer"
               >
-                <span className="mr-2">🇷🇴</span> Română
+                <span className="mr-2">🇷🇴</span> {t('navbar.language.romanian')}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => handleLanguageChange('en')}
                 className="cursor-pointer"
               >
-                <span className="mr-2">🇬🇧</span> English
+                <span className="mr-2">🇬🇧</span> {t('navbar.language.english')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -95,13 +95,13 @@ export const Navbar: React.FC = () => {
                 onClick={() => handleLanguageChange('ro')}
                 className="cursor-pointer"
               >
-                <span className="mr-2">🇷🇴</span> Română
+                <span className="mr-2">🇷🇴</span> {t('navbar.language.romanian')}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => handleLanguageChange('en')}
                 className="cursor-pointer"
               >
-                <span className="mr-2">🇬🇧</span> English
+                <span className="mr-2">🇬🇧</span> {t('navbar.language.english')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -130,7 +130,7 @@ export const Navbar: React.FC = () => {
                     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  Solicită Ofertă
+                  {t('navbar.cta')}
                 </Button>
                 {/* Eliminat selectorul de limbă din meniul lateral */}
               </div>

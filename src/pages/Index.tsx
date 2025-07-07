@@ -5,9 +5,9 @@ import { About } from '@/components/About';
 import { Products } from '@/components/Products';
 import { Benefits } from '@/components/Benefits';
 import { ContactMap } from '@/components/ContactMap';
-import Certifications from '@/components/Certifications';
+import { Certifications } from '@/components/Certifications';
 import { ContactForm } from '@/components/ContactForm';
-import Footer from '@/components/Footer';
+import { Footer } from '@/components/Footer';
 import { Slideshow } from '@/components/Slideshow';
 import { VideoPresentation } from '@/components/VideoPresentation';
 

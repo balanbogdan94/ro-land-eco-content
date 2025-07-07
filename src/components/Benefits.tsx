@@ -1,56 +1,36 @@
 import React from 'react';
 import styles from './Benefits.module.css';
 import { Check } from 'lucide-react';
+import { useTranslations } from '@/context/LanguageContext';
+
+const benefitKeys = [
+  'certification',
+  'fertile-soil',
+  'ideal-climate',
+  'traceability',
+  'delivery',
+  'export',
+];
 
 export const Benefits: React.FC = () => {
-  const benefits = [
-    {
-      title: 'Certificare ecologică',
-      description: 'Toate produsele noastre sunt certificate ecologic la standarde europene.',
-    },
-    {
-      title: 'Sol fertil din Dobrogea',
-      description: 'Terenurile noastre beneficiază de solul fertil specific regiunii Adamclisi.',
-    },
-    {
-      title: 'Climat ideal',
-      description: 'Zona are un climat perfect pentru cultivarea cerealelor de înaltă calitate.',
-    },
-    {
-      title: 'Trasabilitate completă',
-      description: 'Oferim transparență totală privind proveniența și metodele de cultivare.',
-    },
-    {
-      title: 'Livrare garantată',
-      description: 'Respectăm termenele de livrare și garantăm cantitățile contractate.',
-    },
-    {
-      title: 'Export în toată Europa',
-      description: 'Avem experiență în exportul de cereale conform standardelor UE.',
-    },
-  ];
-
+  const { t } = useTranslations();
   return (
     <section id="benefits" className={styles.benefits}>
       <div className="container-custom py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="heading-lg mb-6">De ce să alegi Ro land organic</h2>
-            <p className="text-body mb-8">
-              Calitatea produselor noastre și angajamentul pentru agricultura ecologică ne
-              diferențiază pe piața europeană. Clima blândă și solul fertil din zona Adamclisi
-              creează condițiile perfecte pentru cultivarea unor cereale de excepție.
-            </p>
+            <h2 className="heading-lg mb-6">{t('benefits.title')}</h2>
+            <p className="text-body mb-8">{t('benefits.intro')}</p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {benefits.map((benefit, index) => (
-                <div key={index} className={styles.benefitItem}>
+              {benefitKeys.map((key) => (
+                <div key={key} className={styles.benefitItem}>
                   <div className={styles.benefitIcon}>
                     <Check className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">{benefit.title}</h3>
-                    <p className="text-sm text-gray-600">{benefit.description}</p>
+                    <h3 className="font-semibold mb-1">{t(`benefits.items.${key}.title`)}</h3>
+                    <p className="text-sm text-gray-600">{t(`benefits.items.${key}.desc`)}</p>
                   </div>
                 </div>
               ))}
@@ -60,7 +40,7 @@ export const Benefits: React.FC = () => {
           <div className={styles.imageContainer}>
             <img
               src="/assets/slideshow/Slideshow-4.JPG"
-              alt="Câmpuri cultivate ecologic în Adamclisi"
+              alt={t('benefits.imageAlt')}
               className={styles.image}
             />
           </div>

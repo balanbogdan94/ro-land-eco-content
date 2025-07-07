@@ -1,8 +1,10 @@
-import React from "react";
-import styles from "./Footer.module.css";
-import { Mail, Phone, MapPin } from "lucide-react";
+import React from 'react';
+import styles from './Footer.module.css';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { useTranslations } from '@/context/LanguageContext';
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
+  const { t } = useTranslations();
   return (
     <footer className={styles.footer}>
       <div className="container-custom py-12">
@@ -11,13 +13,8 @@ const Footer: React.FC = () => {
             <div className="text-xl font-bold mb-4">
               RO LAND <span className="text-rolandGreen">ORGANIC</span>
             </div>
-            <p className="text-body mb-4">
-              Cooperativă agricolă specializată în cultivarea și distribuția de
-              cereale și semințe ecologice din zona Adamclisi, Dobrogea.
-            </p>
-            <p className="italic text-sm mb-4">
-              "Natura livrată la tine acasă"
-            </p>
+            <p className="text-body mb-4">{t('footer.description')}</p>
+            <p className="italic text-sm mb-4">{t('footer.slogan')}</p>
             <div className="flex space-x-4">
               <a href="#" className={styles.socialLink}>
                 <svg
@@ -72,28 +69,28 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contact</h3>
+            <h3 className="text-lg font-semibold mb-4">{t('footer.contactTitle')}</h3>
             <ul className={styles.contactList}>
               <li>
                 <MapPin className="h-5 w-5" />
-                <span>Comuna Adamclisi, Jud. Constanța, România</span>
+                <span>{t('footer.contact.address')}</span>
               </li>
               <li>
                 <Phone className="h-5 w-5" />
-                <span>+40 754 123 456</span>
+                <span>{t('footer.contact.phone')}</span>
               </li>
               <li>
                 <Mail className="h-5 w-5" />
-                <span>contact@rolandorganic.ro</span>
+                <span>{t('footer.contact.email')}</span>
               </li>
             </ul>
 
             <div className="mt-6">
-              <h3 className="text-lg font-semibold mb-2">Certificări</h3>
+              <h3 className="text-lg font-semibold mb-2">{t('footer.certificationsTitle')}</h3>
               <div className="flex space-x-4 items-center">
-                <span className={styles.certBadge}>EU-BIO</span>
-                <span className={styles.certBadge}>HACCP</span>
-                <span className={styles.certBadge}>GMP+</span>
+                <span className={styles.certBadge}>{t('footer.certifications.eu-bio')}</span>
+                <span className={styles.certBadge}>{t('footer.certifications.haccp')}</span>
+                <span className={styles.certBadge}>{t('footer.certifications.gmp')}</span>
               </div>
             </div>
           </div>
@@ -102,21 +99,14 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-200 mt-12 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-600">
-              &copy; {new Date().getFullYear()} RO Land Organic. Toate
-              drepturile rezervate.
+              &copy; {new Date().getFullYear()} RO Land Organic. {t('footer.copyright')}
             </p>
             <div className="mt-4 md:mt-0">
-              <a
-                href="#"
-                className="text-sm text-gray-600 hover:text-rolandGreen mr-4"
-              >
-                Politica de confidențialitate
+              <a href="#" className="text-sm text-gray-600 hover:text-rolandGreen mr-4">
+                {t('footer.privacy')}
               </a>
-              <a
-                href="#"
-                className="text-sm text-gray-600 hover:text-rolandGreen"
-              >
-                Termeni și condiții
+              <a href="#" className="text-sm text-gray-600 hover:text-rolandGreen">
+                {t('footer.terms')}
               </a>
             </div>
           </div>
@@ -125,5 +115,3 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
-export default Footer;
