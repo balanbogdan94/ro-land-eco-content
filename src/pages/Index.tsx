@@ -2,7 +2,7 @@ import React from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
-import Products from '@/components/Products';
+import { Products } from '@/components/Products';
 import { Benefits } from '@/components/Benefits';
 import { ContactMap } from '@/components/ContactMap';
 import Certifications from '@/components/Certifications';
