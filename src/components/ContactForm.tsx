@@ -5,14 +5,14 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { PRODUCTS, SelectedProduct } from '@/models/products';
 import { useForm } from 'react-hook-form';
 import { useTranslations } from '@/context/LanguageContext';
+import { PRODUCTS } from '@/models/products';
 
 export const ContactForm: React.FC = () => {
   const { t } = useTranslations();
   const { register, handleSubmit } = useForm();
-  const [selectedProducts] = useState<SelectedProduct[]>([]);
+  const [selectedProducts] = useState<string[]>([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -82,15 +82,15 @@ export const ContactForm: React.FC = () => {
                 ) : (
                   selectedProducts.map((product) => (
                     <span
-                      key={product.name}
+                      key={product}
                       className="flex items-center bg-gray-200 rounded px-2 py-1 text-sm"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      {product.name}
+                      {product}
                       <button
                         type="button"
                         className="ml-1 text-gray-600 hover:text-red-600 font-bold"
-                        aria-label={`Șterge ${product.name}`}
+                        aria-label={`Șterge ${product}`}
                       >
                         ×
                       </button>
@@ -102,15 +102,15 @@ export const ContactForm: React.FC = () => {
               {/* Dropdown listă produse */}
               {dropdownOpen && (
                 <div className="border rounded mt-1 max-h-56 overflow-y-auto bg-white z-10 relative shadow-md p-2">
-                  {PRODUCTS.map((productName) => {
-                    const checked = selectedProducts.some((p) => p.name === productName);
+                  {PRODUCTS.map((productKey) => {
+                    const checked = selectedProducts.includes(productKey);
                     return (
                       <label
-                        key={productName}
+                        key={productKey}
                         className="flex items-center space-x-2 cursor-pointer py-1 px-2 rounded hover:bg-gray-100"
                       >
                         <input type="checkbox" checked={checked} />
-                        <span>{productName}</span>
+                        <span>{t(productKey)}</span>
                       </label>
                     );
                   })}
@@ -123,11 +123,11 @@ export const ContactForm: React.FC = () => {
               <div className="md:col-span-2 space-y-4">
                 <Label>{t('contactForm.quantity')}</Label>
                 {selectedProducts.map((product) => (
-                  <div key={product.name} className="flex items-center gap-4">
-                    <span className="min-w-[250px]">{product.name}</span>
+                  <div key={product} className="flex items-center gap-4">
+                    <span className="min-w-[250px]">{product}</span>
                     <Input
                       type="text"
-                      value={product.quantity}
+                      value={product}
                       placeholder={t('contactForm.quantity.placeholder')}
                       required
                       className="max-w-xs"

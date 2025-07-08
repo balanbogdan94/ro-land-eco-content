@@ -5,7 +5,7 @@ import { useTranslations } from '@/context/LanguageContext';
 export const ContactMap: React.FC = () => {
   const { t } = useTranslations();
   return (
-    <section id="contact" className="flex flex-col items-center py-20">
+    <section id="map" className="flex flex-col items-center py-20">
       <div>
         <h2 className="heading-lg mb-10">{t('contactMap.title')}</h2>
       </div>

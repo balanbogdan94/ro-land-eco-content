@@ -115,5 +115,17 @@
   "slideshow.aria": "Go to slide {number}",
   "navbar.language.romanian": "Română",
   "navbar.language.english": "English",
-  "navbar.cta": "Request Offer"
+  "navbar.cta": "Request Offer",
+  "products.bread": "Organic bread wheat",
+  "products.spelta": "Organic spelt wheat",
+  "products.durum": "Organic durum wheat",
+  "products.sunflowerSeeds": "Organic sunflower seeds",
+  "products.sunflowerKernel": "Organic sunflower kernel",
+  "products.sunflowerOil": "Organic cold-pressed sunflower oil",
+  "products.pea": "Organic peas",
+  "products.rapeseed": "Organic rapeseed",
+  "products.mustard": "Organic mustard",
+  "products.corn": "Organic corn",
+  "products.barley": "Organic barley",
+  "products.other": "Other products"
 }
