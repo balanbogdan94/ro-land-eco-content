@@ -19,6 +19,7 @@ export const ContactForm: React.FC = () => {
     register,
     handleSubmit,
     control,
+    reset,
     formState: { errors, isSubmitted: formIsSubmitted },
   } = useForm<z.infer<typeof ContactFormSchema>>({
     resolver: zodResolver(ContactFormSchema),
@@ -34,8 +35,13 @@ export const ContactForm: React.FC = () => {
     // Here you would normally send the data to your backend
   };
 
+  const onNewRequest = () => {
+    setIsSubmitted(false);
+    reset(DEFAULT_FORM_VALUES);
+  };
+
   return isSubmitted ? (
-    <ThankYouCard onNewRequest={() => setIsSubmitted(false)} />
+    <ThankYouCard onNewRequest={onNewRequest} />
   ) : (
     <section id="contact" className={styles.contact}>
       <div className="container-custom py-20">
