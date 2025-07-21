@@ -78,45 +78,43 @@ export const ContactForm: React.FC = () => {
               )}
             </div>
 
-            {/* Produse dropdown */}
             <div className="space-y-2 md:col-span-2">
               <ProductSelect control={control} errors={errors} />
-              {/* Cantități per produs */}
+              <Label>{t('contactForm.quantity')}</Label>
               <Controller
                 name="products"
                 control={control}
                 defaultValue={[]}
-                render={({ field: { value } }) =>
+                render={({ field: { value, onChange } }) =>
                   value && value.length > 0 ? (
-                    <div className="space-y-4 mt-4">
-                      <Label>{t('contactForm.quantity')}</Label>
-                      {value.map((option: { value: string; label: string }) => (
-                        <div key={option.value} className="flex items-center gap-4">
-                          <span className="min-w-[250px]">{t(option.value)}</span>
-                          <Controller
-                            name={`quantities.${option.value}`}
-                            control={control}
-                            defaultValue={null}
-                            render={({ field }) => (
-                              <div>
-                                <Input
-                                  type="number"
-                                  min={0}
-                                  step={1}
-                                  {...field}
-                                  placeholder={t('contactForm.quantity.placeholder')}
-                                  className="max-w-xs"
-                                />
-                                {formIsSubmitted &&
-                                  errors.quantities &&
-                                  errors.quantities[option.value] && (
-                                    <p className="text-red-500 text-sm">
-                                      {t(errors.quantities[option.value].message)}
-                                    </p>
-                                  )}
-                              </div>
-                            )}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                      {value.map((option, index: number) => (
+                        <div key={option.value} className="flex flex-col justify-start">
+                          <span className="min-w-[250px] text-sm">{t(option.value)}</span>
+                          <Input
+                            type="number"
+                            min={0}
+                            step={1}
+                            value={option.quantity || ''}
+                            onChange={(e) => {
+                              const newValue = [...value];
+                              newValue[index] = {
+                                ...option,
+                                quantity: e.target.value ? Number(e.target.value) : undefined,
+                              };
+                              onChange(newValue);
+                            }}
+                            placeholder={t('contactForm.quantity.placeholder')}
+                            className="max-w-xs"
                           />
+                          {formIsSubmitted && errors.products?.[index]?.quantity && (
+                            <p className="text-red-500 text-sm">
+                              {t(
+                                errors.products[index].quantity.message ||
+                                  'contactForm.validation.required'
+                              )}
+                            </p>
+                          )}
                         </div>
                       ))}
                     </div>
