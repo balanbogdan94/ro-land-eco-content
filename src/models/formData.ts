@@ -3,11 +3,13 @@ import z from 'zod';
 interface ProductOption {
   value: string;
   label: string;
+  quantity?: number;
 }
 
 const ProductOptionSchema = z.object({
   value: z.string(),
   label: z.string(),
+  quantity: z.number().optional(),
 });
 
 export const ContactFormSchema = z
@@ -16,14 +18,10 @@ export const ContactFormSchema = z
     company: z.string().optional(),
     email: z.string().optional(),
     phone: z.string().optional(),
-    products: z.array(ProductOptionSchema).default([]),
-    quantities: z.record(z.string()).default({}),
+    products: z.array(ProductOptionSchema).optional(),
     message: z.string().optional(),
   })
   .superRefine((data, ctx) => {
-    console.log('Validating data:', data);
-
-    // Validate email format if provided
     if (data.email && data.email.trim() !== '') {
       const emailRegex = /^\S+@\S+\.\S+$/;
       if (!emailRegex.test(data.email)) {
@@ -35,7 +33,6 @@ export const ContactFormSchema = z
       }
     }
 
-    // Validate phone format if provided
     if (data.phone && data.phone.trim() !== '') {
       const phoneRegex = /^\+?[0-9\s\-()]+$/;
       if (!phoneRegex.test(data.phone)) {
@@ -47,7 +44,6 @@ export const ContactFormSchema = z
       }
     }
 
-    // At least email or phone
     if ((!data.email || data.email.trim() === '') && (!data.phone || data.phone.trim() === '')) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
@@ -60,18 +56,14 @@ export const ContactFormSchema = z
         path: ['phone'],
       });
     }
-    // If products selected, all must have quantity
+
     if (data.products && data.products.length > 0) {
-      data.products.forEach((option) => {
-        if (
-          !data.quantities ||
-          !data.quantities[option.value] ||
-          data.quantities[option.value] === ''
-        ) {
+      data.products.forEach((option, index) => {
+        if (!option.quantity || option.quantity <= 0 || isNaN(option.quantity)) {
           ctx.addIssue({
             code: z.ZodIssueCode.custom,
             message: 'contactForm.validation.quantityRequired',
-            path: ['quantities', option.value],
+            path: ['products', index, 'quantity'],
           });
         }
       });
@@ -93,7 +85,6 @@ export interface FormValues {
   email?: string;
   phone?: string;
   products: ProductOption[];
-  quantities: Record<string, string>;
   message?: string;
 }
 
@@ -103,6 +94,5 @@ export const DEFAULT_FORM_VALUES: Readonly<FormValues> = {
   email: '',
   phone: '',
   products: [],
-  quantities: {},
   message: '',
 };
