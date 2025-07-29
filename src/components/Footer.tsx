@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <div className="text-xl font-bold mb-4">
-              RO LAND <span className="text-rolandGreen">ORGANIC</span>
+              <img src="/logo.svg" alt="Roland Logo" className="h-8 w-auto" />
             </div>
             <p className="text-body mb-4">{t('footer.description')}</p>
             <p className="italic text-sm mb-4">{t('footer.slogan')}</p>

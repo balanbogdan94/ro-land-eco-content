@@ -35,7 +35,7 @@ export const Navbar: React.FC = () => {
             className="text-xl font-bold cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            RO LAND <span className="text-rolandGreen">ORGANIC</span>
+            <img src="/logo.svg" alt="Roland Logo" className="h-8 w-auto" />
           </span>
         </div>
 
