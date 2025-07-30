@@ -10,7 +10,7 @@ export const About: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className={styles.imageWrapper}>
             <img
-              src="/assets/slideshow/Slideshow-3.JPG"
+              src="/assets/aboutUs/aboutUsBright.JPG"
               alt={t('about.imageAlt')}
               className={styles.image}
             />
