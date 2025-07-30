@@ -56,7 +56,7 @@ export const Navbar: React.FC = () => {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="flex items-center gap-2 text-gray-700 hover:text-rolandGreen transition-colors"
+                className="flex items-center gap-2 text-gray-700 h-auto py-0 px-0 text-[1rem]"
               >
                 <span>{language === 'ro' ? '🇷🇴' : '🇬🇧'}</span>
                 {language === 'ro' ? 'RO' : 'EN'}
@@ -84,7 +84,7 @@ export const Navbar: React.FC = () => {
             <DropdownMenuTrigger asChild>
               <Button
                 variant="ghost"
-                className="flex items-center gap-2 text-gray-700 hover:text-rolandGreen transition-colors"
+                className="flex items-center gap-2 text-gray-700 hover:text-rolandGreen transition-colors h-auto"
               >
                 <span>{language === 'ro' ? '🇷🇴' : '🇬🇧'}</span>
                 {language === 'ro' ? 'RO' : 'EN'}
