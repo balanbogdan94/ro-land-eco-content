@@ -36,7 +36,7 @@ export const Hero: React.FC = () => {
           poster="./assets/hero/hero-poster.jpg"
           className="w-full absolute top-0 left-0 object-cover h-[75vh] sm:h-[80vh] lg:h-[85vh] z-0 pointer-events-none select-none transform translate-z-0 will-change-transform"
         >
-          <source src="./assets/hero/hero.mp4" type="video/mp4" />
+          <source src="./assets/hero/0708.mp4" type="video/mp4" />
           {t('hero.noVideoSupport')}
         </video>
 
@@ -45,8 +45,7 @@ export const Hero: React.FC = () => {
           className="
             absolute inset-0 z-[1] 
             pointer-events-auto
-            select-none
-            bg-gradient-to-b from-transparent to-black
+            select-none 
           "
           onContextMenu={(e) => e.preventDefault()}
           onDragStart={(e) => e.preventDefault()}
