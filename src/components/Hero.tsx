@@ -45,8 +45,7 @@ export const Hero: React.FC = () => {
           className="
             absolute inset-0 z-[1] 
             pointer-events-auto
-            select-none
-            bg-gradient-to-b from-transparent to-black
+            select-none 
           "
           onContextMenu={(e) => e.preventDefault()}
           onDragStart={(e) => e.preventDefault()}
