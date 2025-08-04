@@ -12,11 +12,11 @@ export const Certifications: React.FC = () => {
     <img
       src="/assets/certifications/the_organic_logo_0.jpg"
       alt="EU Organic Logo"
-      className="w-9 h-9 mx-auto mb-4"
+      className="w-20 h-20 mx-auto mb-4 rounded-lg"
       key="eu-bio"
     />,
-    <ShieldCheck className="text-blue-600 w-8 h-8 mb-4 mx-auto" key="haccp" />,
-    <Factory className="text-yellow-600 w-8 h-8 mb-4 mx-auto" key="gmp" />,
+    <ShieldCheck className="text-blue-600 w-20 h-20 mb-4 mx-auto rounded-lg" key="haccp" />,
+    <Factory className="text-yellow-600 w-20 h-20 mb-4 mx-auto rounded-lg" key="gmp" />,
   ];
   return (
     <section id="certifications" className={styles.certifications}>
