@@ -47,10 +47,10 @@ export const ContactForm: React.FC = () => {
       <div className="container-custom py-20">
         <div className="text-center mb-16">
           <h2 className="heading-lg mb-4">{t('contactForm.title')}</h2>
-          <p className="text-body max-w-3xl mx-auto">{t('contactForm.description')}</p>
+          <p className="text-body  mx-auto">{t('contactForm.description')}</p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        <div className="mx-auto">
           <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <Label htmlFor="name">{t('contactForm.name')}</Label>
