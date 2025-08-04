@@ -27,14 +27,18 @@ export const Navbar: React.FC = () => {
     { href: '#map', key: 'map' },
   ];
 
+  const onLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  };
+
   return (
     <nav className="sticky top-0 bg-white z-50 shadow-sm">
       <div className="container-custom flex items-center justify-between py-4">
         <div className="flex items-center">
-          <span
-            className="text-xl font-bold cursor-pointer"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          >
+          <span className="text-xl font-bold cursor-pointer" onClick={onLogoClick}>
             <img src="/logo.svg" alt="Roland Logo" className="h-8 w-auto" />
           </span>
         </div>
