@@ -35,7 +35,7 @@ export const Hero: React.FC = () => {
           preload="auto"
           className="w-full absolute top-0 left-0 object-cover h-[75vh] sm:h-[80vh] lg:h-[85vh] z-0 pointer-events-none select-none transform translate-z-0 will-change-transform"
         >
-          <source src="./assets/hero/0708.mp4" type="video/mp4" />
+          <source src="./assets/hero/0708.webm" type="video/webm" />
           {t('hero.noVideoSupport')}
         </video>
 
