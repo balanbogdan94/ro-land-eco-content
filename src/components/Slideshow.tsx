@@ -36,11 +36,11 @@ export const Slideshow = () => {
         <Carousel className="w-full" orientation="horizontal" opts={{ loop: true }} setApi={setApi}>
           <CarouselContent className="rounded-2xl">
             {[1, 2, 3, 4, 5].map((number) => (
-              <CarouselItem key={number} className="p-1">
+              <CarouselItem key={number} className="p-1 overflow-hidden">
                 <img
                   src={`/assets/slideshow/Slideshow-${number}.JPG`}
                   alt={`Slide ${number}`}
-                  className="w-full h-auto object-cover rounded-xl"
+                  className="aspect-square w-full lg:h-[65vh] object-cover rounded-xl overflow-hidden"
                   loading="lazy"
                 />
               </CarouselItem>
