@@ -11,6 +11,7 @@ const productKeys = [
   'sunflower-kernel',
   'sunflower-oil',
   'pea',
+  'driedYellowPeas',
   'rapeseed',
   'mustard',
   'corn',
