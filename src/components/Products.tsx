@@ -30,13 +30,7 @@ export const Products: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {productKeys.map((key) => (
-            <Card
-              key={key}
-              className={`${styles.productCard} cursor-pointer`}
-              onClick={() => {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
+            <Card key={key} className={`${styles.productCard}`}>
               <div className={styles.productImage}>
                 <img src={t(`products.items.${key}.image`)} alt={t(`products.items.${key}.name`)} />
               </div>
