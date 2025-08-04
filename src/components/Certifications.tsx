@@ -10,7 +10,7 @@ export const Certifications: React.FC = () => {
   const { t } = useTranslations();
   const certIcons = [
     <img
-      src="/assets/certifications/the_organic_logo_0.jpg"
+      src="/assets/certifications/the_organic_logo_0.webp"
       alt="EU Organic Logo"
       className="w-20 h-20 mx-auto mb-4 rounded-lg"
       key="eu-bio"
