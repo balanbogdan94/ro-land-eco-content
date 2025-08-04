@@ -1,19 +1,20 @@
 .videoSection {
-	@apply bg-gray-50;
+  @apply bg-gray-50 py-20;
 }
 
 .videoContainer {
-	@apply relative w-full max-w-4xl mx-auto shadow-xl rounded-lg overflow-hidden;
-	aspect-ratio: 16 / 9;
+  @apply w-full overflow-hidden rounded-xl shadow-xl;
+  aspect-ratio: 16 / 9;
 }
 
 .video {
-	@apply absolute top-0 left-0 w-full h-full object-cover;
-	border-radius: inherit;
+  @apply w-full h-full object-cover;
+  display: block;
+  border-radius: inherit;
 }
 
 @media (max-width: 768px) {
-	.videoContainer {
-		@apply max-w-full;
-	}
+  .videoContainer {
+    @apply max-w-full;
+  }
 }

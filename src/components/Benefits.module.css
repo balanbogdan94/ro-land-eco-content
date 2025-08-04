@@ -1,4 +1,3 @@
-
 .benefits {
   @apply bg-beige;
 }
@@ -12,10 +11,32 @@
 }
 
 .imageContainer {
-  @apply rounded-lg overflow-hidden shadow-xl;
+  @apply rounded-lg overflow-hidden shadow-xl bg-white;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* pătrat pe mobile */
+
+  @screen md {
+    aspect-ratio: auto;
+    height: 500px; /* înălțime mare pe desktop */
+  }
 }
 
 .image {
-  @apply w-full h-full object-cover;
+  @apply w-full h-full object-contain;
   aspect-ratio: 4/3;
+  transition: transform 0.2s ease;
+}
+
+/* Modal Overlay */
+.modalOverlay {
+  @apply fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50;
+}
+
+.modalImage {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  cursor: zoom-out;
 }
