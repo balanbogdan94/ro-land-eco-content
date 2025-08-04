@@ -32,7 +32,11 @@ export const Products: React.FC = () => {
           {productKeys.map((key) => (
             <Card key={key} className={`${styles.productCard}`}>
               <div className={styles.productImage}>
-                <img src={t(`products.items.${key}.image`)} alt={t(`products.items.${key}.name`)} />
+                <img
+                  className="rounded-t-lg"
+                  src={t(`products.items.${key}.image`)}
+                  alt={t(`products.items.${key}.name`)}
+                />
               </div>
               <CardContent className="p-6">
                 <h3 className="heading-md mb-2">{t(`products.items.${key}.name`)}</h3>
