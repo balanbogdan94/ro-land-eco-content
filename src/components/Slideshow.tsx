@@ -8,6 +8,7 @@ import {
   type CarouselApi,
 } from './ui/carousel';
 import { useTranslations } from '@/context/LanguageContext';
+import styles from './Slideshow.module.css';
 
 export const Slideshow = () => {
   const { t } = useTranslations();
@@ -29,41 +30,41 @@ export const Slideshow = () => {
   }, [api]);
 
   return (
-    <div className="container-custom py-8">
-      <h2 className="heading-lg mb-4 text-center">{t('slideshow.title')}</h2>
-      <Carousel className="w-full" orientation="horizontal" opts={{ loop: true }} setApi={setApi}>
-        <CarouselContent className="rounded-2xl">
-          {[1, 2, 3, 4, 5].map((number) => (
-            <CarouselItem key={number} className="p-1">
-              <img
-                src={`/assets/slideshow/Slideshow-${number}.JPG`}
-                alt={`Slide ${number}`}
-                className="w-full h-auto object-cover rounded-xl"
-                loading="lazy"
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-
-        <div className="flex items-center justify-center mt-4 gap-2">
-          <CarouselPrevious className=" relative transform-none mr-2" />
-
-          <div className="flex gap-2">
-            {Array.from({ length: slideCount }).map((_, index) => (
-              <button
-                key={index}
-                className={`h-2 w-2 rounded-full transition-colors ${
-                  current === index ? 'bg-primary' : 'bg-gray-300'
-                }`}
-                onClick={() => api?.scrollTo(index)}
-                aria-label={t('slideshow.aria').replace('{number}', String(index + 1))}
-              />
+    <div className={styles.slideshowWrapperOuter}>
+      <div className={`container-custom ${styles.slideshowWrapperInner}`}>
+        <h2 className="heading-lg mb-4 text-center">{t('slideshow.title')}</h2>
+        <Carousel className="w-full" orientation="horizontal" opts={{ loop: true }} setApi={setApi}>
+          <CarouselContent className="rounded-2xl">
+            {[1, 2, 3, 4, 5].map((number) => (
+              <CarouselItem key={number} className="p-1">
+                <img
+                  src={`/assets/slideshow/Slideshow-${number}.JPG`}
+                  alt={`Slide ${number}`}
+                  className="w-full h-auto object-cover rounded-xl"
+                  loading="lazy"
+                />
+              </CarouselItem>
             ))}
-          </div>
+          </CarouselContent>
 
-          <CarouselNext className=" relative transform-none ml-2" />
-        </div>
-      </Carousel>
+          <div className="flex items-center justify-center mt-4 gap-2">
+            <CarouselPrevious className="relative transform-none mr-2" />
+            <div className="flex gap-2">
+              {Array.from({ length: slideCount }).map((_, index) => (
+                <button
+                  key={index}
+                  className={`h-2 w-2 rounded-full transition-colors ${
+                    current === index ? 'bg-primary' : 'bg-gray-300'
+                  }`}
+                  onClick={() => api?.scrollTo(index)}
+                  aria-label={t('slideshow.aria').replace('{number}', String(index + 1))}
+                />
+              ))}
+            </div>
+            <CarouselNext className="relative transform-none ml-2" />
+          </div>
+        </Carousel>
+      </div>
     </div>
   );
 };
