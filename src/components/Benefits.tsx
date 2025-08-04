@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Benefits.module.css';
 import { Check } from 'lucide-react';
 import { useTranslations } from '@/context/LanguageContext';
@@ -14,6 +14,16 @@ const benefitKeys = [
 
 export const Benefits: React.FC = () => {
   const { t } = useTranslations();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleImageClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <section id="benefits" className={styles.benefits}>
       <div className="container-custom py-20">
@@ -39,13 +49,26 @@ export const Benefits: React.FC = () => {
 
           <div className={styles.imageContainer}>
             <img
-              src="/assets/slideshow/Slideshow-4.JPG"
+              src="/assets/benefits/transportMapPhoto.PNG"
               alt={t('benefits.imageAlt')}
               className={styles.image}
+              onClick={handleImageClick}
+              style={{ cursor: 'zoom-in' }}
             />
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className={styles.modalOverlay} onClick={handleCloseModal}>
+          <img
+            src="/assets/benefits/transportMapPhoto.PNG"
+            alt={t('benefits.imageAlt')}
+            className={styles.modalImage}
+          />
+        </div>
+      )}
     </section>
   );
 };
