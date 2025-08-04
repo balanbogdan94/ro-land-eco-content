@@ -24,13 +24,8 @@ export const Products: React.FC = () => {
       <div className="container-custom py-20">
         <div className="text-center mb-16">
           <h2 className="heading-lg mb-4">{t('products.title')}</h2>
-          <p className="text-body max-w-3xl mx-auto">{t('products.intro')}</p>
-        </div>
-        <div className="text-center mt-2 mb-16">
-          <p className="text-body mb-6">{t('products.ecoNote')}</p>
-          <a href="#contact" className="btn-primary inline-block">
-            {t('products.cta')}
-          </a>
+          <p className="text-body max-w-3xl mx-auto text-balance">{t('products.intro')}</p>
+          <p className="text-body mb-6 mt-6 text-center text-balance">{t('products.ecoNote')}</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -51,6 +46,11 @@ export const Products: React.FC = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+        <div className="text-center mt-16">
+          <a href="#contact" className="btn-primary inline-block">
+            {t('products.cta')}
+          </a>
         </div>
       </div>
     </section>
