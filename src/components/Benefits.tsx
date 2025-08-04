@@ -40,18 +40,20 @@ export const Benefits: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">{t(`benefits.items.${key}.title`)}</h3>
-                    <p className="text-sm text-gray-600">{t(`benefits.items.${key}.desc`)}</p>
+                    <p className="text-sm text-gray-600 text-balance">
+                      {t(`benefits.items.${key}.desc`)}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className={styles.imageContainer}>
+          <div className={'rounded-lg overflow-hidden shadow-xl bg-white'}>
             <img
               src="/assets/benefits/transportMapPhoto.PNG"
               alt={t('benefits.imageAlt')}
-              className={styles.image}
+              className={'w-full h-full object-contain'}
               onClick={handleImageClick}
               style={{ cursor: 'zoom-in' }}
             />
@@ -61,11 +63,14 @@ export const Benefits: React.FC = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className={styles.modalOverlay} onClick={handleCloseModal}>
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
+          onClick={handleCloseModal}
+        >
           <img
             src="/assets/benefits/transportMapPhoto.PNG"
             alt={t('benefits.imageAlt')}
-            className={styles.modalImage}
+            className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-zoom-out"
           />
         </div>
       )}
