@@ -13,14 +13,7 @@ export const VideoPresentation = () => {
         </div>
 
         <div className={styles.videoContainer}>
-          <video
-            className={styles.video}
-            controls
-            autoPlay={false}
-            loop
-            muted
-            poster="/assets/hero.JPG"
-          >
+          <video className={styles.video} controls muted loop poster="/assets/hero.JPG">
             <source src="/assets/timelapse.MP4" type="video/mp4" />
             {t('video.noVideoSupport')}
           </video>
