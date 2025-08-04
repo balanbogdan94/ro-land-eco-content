@@ -51,7 +51,7 @@ export const Benefits: React.FC = () => {
 
           <div className={'rounded-lg overflow-hidden shadow-xl bg-white'}>
             <img
-              src="/assets/benefits/transportMapPhoto.PNG"
+              src="/assets/benefits/transportMapPhoto.webp"
               alt={t('benefits.imageAlt')}
               className={'w-full h-full object-contain'}
               onClick={handleImageClick}
@@ -68,7 +68,7 @@ export const Benefits: React.FC = () => {
           onClick={handleCloseModal}
         >
           <img
-            src="/assets/benefits/transportMapPhoto.PNG"
+            src="/assets/benefits/transportMapPhoto.webp"
             alt={t('benefits.imageAlt')}
             className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-zoom-out"
           />
