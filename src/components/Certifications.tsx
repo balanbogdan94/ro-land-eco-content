@@ -24,7 +24,7 @@ export const Certifications: React.FC = () => {
     <img
       src="/assets/certifications/gmp_plus_certificate.webp"
       alt="GMP Certification"
-      className="w-20 h-20 mx-auto mb-4 rounded-lg"
+      className="w-auto h-20 mx-auto mb-4 rounded-lg"
       key="gmp"
     />,
   ];

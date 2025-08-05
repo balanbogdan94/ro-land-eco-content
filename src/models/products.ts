@@ -6,6 +6,7 @@ export const PRODUCTS = [
   'products.sunflowerKernel',
   'products.sunflowerOil',
   'products.pea',
+  'products.driedYellowPeas',
   'products.rapeseed',
   'products.mustard',
   'products.corn',
