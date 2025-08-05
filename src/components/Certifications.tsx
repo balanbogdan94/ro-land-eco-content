@@ -22,7 +22,7 @@ export const Certifications: React.FC = () => {
       key="haccp"
     />,
     <img
-      src="/assets/certifications/gmp_certificate.webp"
+      src="/assets/certifications/gmp_plus_certificate.webp"
       alt="GMP Certification"
       className="w-20 h-20 mx-auto mb-4 rounded-lg"
       key="gmp"
