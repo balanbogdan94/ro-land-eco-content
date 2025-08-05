@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Certifications.module.css';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShieldCheck, Factory } from 'lucide-react';
 import { useTranslations } from '@/context/LanguageContext';
 
 const certKeys = ['eu-bio', 'haccp', 'gmp'];

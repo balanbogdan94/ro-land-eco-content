@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Products.module.css';
 import { Card, CardContent } from '@/components/ui/card';
 import { useTranslations } from '@/context/LanguageContext';
 
@@ -21,7 +20,7 @@ const productKeys = [
 export const Products: React.FC = () => {
   const { t } = useTranslations();
   return (
-    <section id="products" className={styles.products}>
+    <section id="products" className="bg-white">
       <div className="container-custom py-20">
         <div className="text-center mb-16">
           <h2 className="heading-lg mb-4">{t('products.title')}</h2>
@@ -31,12 +30,21 @@ export const Products: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {productKeys.map((key) => (
-            <Card key={key} className={`${styles.productCard}`}>
-              <div className={styles.productImage}>
+            <Card
+              key={key}
+              className="group transition-transform hover:translate-y-[-5px] hover:shadow-lg"
+            >
+              <div className="h-48 overflow-hidden relative">
                 <img
                   className="rounded-t-lg"
                   src={t(`products.items.${key}.image`)}
                   alt={t(`products.items.${key}.name`)}
+                />
+
+                <img
+                  src="/assets/certifications/the_organic_logo_0.webp"
+                  alt="Organic Certification"
+                  className="absolute top-0 left-0 h-12 rounded-tl-lg aspect-square rounded-br-lg"
                 />
               </div>
               <CardContent className="p-6">
