@@ -10,13 +10,23 @@ export const Certifications: React.FC = () => {
   const { t } = useTranslations();
   const certIcons = [
     <img
-      src="/assets/certifications/the_organic_logo_0.jpg"
+      src="/assets/certifications/the_organic_logo_0.webp"
       alt="EU Organic Logo"
       className="w-20 h-20 mx-auto mb-4 rounded-lg"
       key="eu-bio"
     />,
-    <ShieldCheck className="text-blue-600 w-20 h-20 mb-4 mx-auto rounded-lg" key="haccp" />,
-    <Factory className="text-yellow-600 w-20 h-20 mb-4 mx-auto rounded-lg" key="gmp" />,
+    <img
+      src="/assets/certifications/haccp_certification.webp"
+      alt="HACCP Certification"
+      className="w-20 h-20 mx-auto mb-4 rounded-lg"
+      key="haccp"
+    />,
+    <img
+      src="/assets/certifications/gmp_plus_certificate.webp"
+      alt="GMP Certification"
+      className="w-20 h-20 mx-auto mb-4 rounded-lg"
+      key="gmp"
+    />,
   ];
   return (
     <section id="certifications" className={styles.certifications}>
