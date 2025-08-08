@@ -16,11 +16,21 @@ export const About: React.FC = () => {
             />
           </div>
           <div>
-            <h2 className="heading-lg mb-6">{t('about.title')}</h2>
-            <p className="text-body mb-4 text-balance font-bold">{t('about.p1')}</p>
-            <p className="text-body mb-16 text-balance">{t('about.p2')}</p>
-            <p className="text-body mb-4 text-balance font-semibold">{t('about.p3')}</p>
-            <p className="text-body mb-4 text-balance">{t('about.p4')}</p>
+            <h2 className="heading-lg text-center md:text-left lg:text-left mb-6">
+              {t('about.title')}
+            </h2>
+            <p className="text-body text-center md:text-left lg:text-left mb-4 sm:text-balance font-bold">
+              {t('about.p1')}
+            </p>
+            <p className="text-body text-center md:text-left lg:text-left mb-16 sm:text-balance">
+              {t('about.p2')}
+            </p>
+            <p className="text-body text-center md:text-left lg:text-left mb-4 sm:text-balance font-semibold">
+              {t('about.p3')}
+            </p>
+            <p className="text-body text-center md:text-left lg:text-left mb-4 sm:text-balance">
+              {t('about.p4')}
+            </p>
           </div>
         </div>
       </div>

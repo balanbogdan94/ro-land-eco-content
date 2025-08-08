@@ -66,9 +66,11 @@ export const Hero: React.FC = () => {
       </div>
 
       <div className="container-custom flex flex-col gap-2 ">
-        <h2 className="text-black text-xl lg:text-2xl font-bold">{t('hero.subtitle')}</h2>
+        <h2 className="text-black  md:text-left lg:text-left text-center text-xl lg:text-2xl font-bold">
+          {t('hero.subtitle')}
+        </h2>
         <p
-          className="text-lg md:text-xl text-black text-balance lg:max-w-xl"
+          className="text-lg text-center md:text-left lg:text-left md:text-xl text-black text-balance lg:max-w-xl"
           dangerouslySetInnerHTML={{ __html: t('hero.desc') }}
         />
       </div>

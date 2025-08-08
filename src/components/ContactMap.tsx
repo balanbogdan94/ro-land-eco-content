@@ -18,7 +18,32 @@ export const ContactMap: React.FC = () => {
               <div className="text-center md:text-left">
                 <span className="font-semibold">{t('contactMap.addressLabel')}</span>
                 <br />
-                {t('footer.contact.address')}
+                <button
+                  type="button"
+                  onClick={() => {
+                    const address = t('footer.contact.address');
+                    const encoded = encodeURIComponent(address);
+                    // If later you add coordinates in translations (e.g. footer.contact.lat/lng), plug them here.
+                    // Use userAgent detection to choose best handler.
+                    const ua = navigator.userAgent;
+                    let url: string;
+                    if (/iPad|iPhone|Macintosh/.test(ua) && 'standalone' in window) {
+                      // iOS / Apple Maps
+                      url = `http://maps.apple.com/?q=${encoded}`;
+                    } else if (/Android/i.test(ua)) {
+                      // geo: scheme triggers chooser / default
+                      url = `geo:0,0?q=${encoded}`;
+                    } else {
+                      // Fallback web Google Maps
+                      url = `https://www.google.com/maps/search/?api=1&query=${encoded}`;
+                    }
+                    window.open(url, '_blank');
+                  }}
+                  className="text-rolandGreen font-medium md:text-xl inline-block text-center sm:text-left "
+                  aria-label="Open address in Maps"
+                >
+                  {t('footer.contact.address')}
+                </button>
               </div>
             </div>
             <div className="flex flex-col md:flex-row items-center md:items-center gap-1 md:gap-4 w-full">

@@ -8,14 +8,14 @@ export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className="container-custom py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center md:text-left">
+          <div className="flex flex-col items-center md:items-start">
             <div className="text-xl font-bold mb-4">
               <img src="/logo.svg" alt="Roland Logo" className="h-8 w-auto" />
             </div>
             <p className="text-body mb-4">{t('footer.description')}</p>
             <p className="italic text-sm mb-4">{t('footer.slogan')}</p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 justify-center md:justify-start">
               <a href="#" className={styles.socialLink}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -68,18 +68,18 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-col items-center md:items-start">
             <h3 className="text-lg font-semibold mb-4">{t('footer.contactTitle')}</h3>
-            <ul className={styles.contactList}>
-              <li>
+            <ul className={styles.contactList + ' text-center md:text-left max-w-[75vw]'}>
+              <li className="justify-center md:justify-start flex-shrink-0">
                 <MapPin className="h-5 w-5" />
                 <span>{t('footer.contact.address')}</span>
               </li>
-              <li>
+              <li className="justify-center md:justify-start">
                 <Phone className="h-5 w-5" />
                 <span>{t('footer.contact.phone')}</span>
               </li>
-              <li>
+              <li className="justify-center md:justify-start">
                 <Mail className="h-5 w-5" />
                 <span>{t('footer.contact.email')}</span>
               </li>
@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
 
             <div className="mt-6">
               <h3 className="text-lg font-semibold mb-2">{t('footer.certificationsTitle')}</h3>
-              <div className="flex space-x-4 items-center">
+              <div className="flex space-x-4 items-center justify-center md:justify-start">
                 <span className={styles.certBadge}>{t('footer.certifications.eu-bio')}</span>
                 <span className={styles.certBadge}>{t('footer.certifications.haccp')}</span>
                 <span className={styles.certBadge}>{t('footer.certifications.gmp')}</span>
@@ -97,12 +97,12 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-gray-200 mt-12 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-600">
+          <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <p className="text-sm text-gray-600 mb-4 md:mb-0">
               &copy; {new Date().getFullYear()} RO Land Organic. {t('footer.copyright')}
             </p>
-            <div className="mt-4 md:mt-0">
-              <a href="#" className="text-sm text-gray-600 hover:text-rolandGreen mr-4">
+            <div className="mt-0 flex flex-col sm:flex-row gap-2 sm:gap-0">
+              <a href="#" className="text-sm text-gray-600 hover:text-rolandGreen sm:mr-4">
                 {t('footer.privacy')}
               </a>
               <a href="#" className="text-sm text-gray-600 hover:text-rolandGreen">

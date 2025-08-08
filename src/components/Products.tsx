@@ -48,8 +48,12 @@ export const Products: React.FC = () => {
                 />
               </div>
               <CardContent className="p-6">
-                <h3 className="heading-md mb-2">{t(`products.items.${key}.name`)}</h3>
-                <p className="text-body text-gray-600">{t(`products.items.${key}.desc`)}</p>
+                <h3 className="heading-md mb-2 text-center sm:text-left">
+                  {t(`products.items.${key}.name`)}
+                </h3>
+                <p className="text-body text-gray-600 text-center sm:text-left">
+                  {t(`products.items.${key}.desc`)}
+                </p>
               </CardContent>
             </Card>
           ))}
