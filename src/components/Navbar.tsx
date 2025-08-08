@@ -9,14 +9,13 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { useTranslations } from '@/context/LanguageContext';
+import { Flag } from './Flag';
 
 export const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleLanguageChange = (lang: 'ro' | 'en') => {
-    setLanguage(lang);
-  };
+  const handleLanguageChange = (lang: 'ro' | 'en') => setLanguage(lang);
 
   const navItems = [
     { href: '#about', key: 'about' },
@@ -62,22 +61,22 @@ export const Navbar: React.FC = () => {
                 variant="ghost"
                 className="flex items-center gap-2 text-gray-700 h-auto py-0 px-0 text-[1rem]"
               >
-                <span>{language === 'ro' ? '🇷🇴' : '🇬🇧'}</span>
+                <Flag code={language} alt={language === 'ro' ? 'Romanian' : 'English'} />
                 {language === 'ro' ? 'RO' : 'EN'}
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem
                 onClick={() => handleLanguageChange('ro')}
-                className="cursor-pointer"
+                className="cursor-pointer flex items-center gap-2"
               >
-                <span className="mr-2">🇷🇴</span> {t('navbar.language.romanian')}
+                <Flag code="ro" alt="Romanian" /> {t('navbar.language.romanian')}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => handleLanguageChange('en')}
-                className="cursor-pointer"
+                className="cursor-pointer flex items-center gap-2"
               >
-                <span className="mr-2">🇬🇧</span> {t('navbar.language.english')}
+                <Flag code="en" alt="English" /> {t('navbar.language.english')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -90,22 +89,22 @@ export const Navbar: React.FC = () => {
                 variant="ghost"
                 className="flex items-center gap-2 text-gray-700 hover:text-rolandGreen transition-colors h-auto"
               >
-                <span>{language === 'ro' ? '🇷🇴' : '🇬🇧'}</span>
+                <Flag code={language} alt={language === 'ro' ? 'Romanian' : 'English'} />
                 {language === 'ro' ? 'RO' : 'EN'}
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem
                 onClick={() => handleLanguageChange('ro')}
-                className="cursor-pointer"
+                className="cursor-pointer flex items-center gap-2"
               >
-                <span className="mr-2">🇷🇴</span> {t('navbar.language.romanian')}
+                <Flag code="ro" alt="Romanian" /> {t('navbar.language.romanian')}
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={() => handleLanguageChange('en')}
-                className="cursor-pointer"
+                className="cursor-pointer flex items-center gap-2"
               >
-                <span className="mr-2">🇬🇧</span> {t('navbar.language.english')}
+                <Flag code="en" alt="English" /> {t('navbar.language.english')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -136,7 +135,6 @@ export const Navbar: React.FC = () => {
                 >
                   {t('navbar.cta')}
                 </Button>
-                {/* Eliminat selectorul de limbă din meniul lateral */}
               </div>
             </SheetContent>
           </Sheet>

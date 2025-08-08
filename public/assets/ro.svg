@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 16" width="24" height="16" role="img" aria-label="Romania flag">
+  <title>Romania Flag</title>
+  <!-- Normalized to 24x16 (3 vertical stripes each 8 units wide) -->
+  <rect width="8" height="16" x="0" y="0" fill="#002B7F" />
+  <rect width="8" height="16" x="8" y="0" fill="#FCD116" />
+  <rect width="8" height="16" x="16" y="0" fill="#CE1126" />
+</svg>
