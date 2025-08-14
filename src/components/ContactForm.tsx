@@ -1,45 +1,34 @@
 import React from 'react';
-import styles from './ContactForm.module.css';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import { useForm, Controller } from 'react-hook-form';
+import { Controller } from 'react-hook-form';
 import { useTranslations } from '@/context/LanguageContext';
 import { ProductSelect } from './ui/ProductSelect';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { ContactFormSchema, DEFAULT_FORM_VALUES, FormValues } from '@/models/formData';
 import { ThankYouCard } from './ui/ThankYouCard';
+import { useFormData } from '@/hooks/use-form-data';
+import { Spinner } from './ui/spinner';
 
 export const ContactForm: React.FC = () => {
   const { t } = useTranslations();
-  const [isSubmitted, setIsSubmitted] = React.useState(false);
+
   const {
+    isSubmitted,
+    isLoading,
     register,
     handleSubmit,
     control,
-    reset,
-    formState: { errors, isSubmitted: formIsSubmitted },
-  } = useForm<z.infer<typeof ContactFormSchema>>({
-    resolver: zodResolver(ContactFormSchema),
-    mode: 'onSubmit',
-    reValidateMode: 'onSubmit',
-    defaultValues: DEFAULT_FORM_VALUES,
-  });
-
-  const onSubmit = (data: FormValues) => {
-    console.log('Form submitted:', data);
-    setIsSubmitted(true);
-  };
-  const onNewRequest = () => {
-    setIsSubmitted(false);
-    reset(DEFAULT_FORM_VALUES);
-  };
+    errors,
+    onSubmit,
+    onNewRequest,
+    formIsSubmitted,
+  } = useFormData();
 
   if (isSubmitted) return <ThankYouCard onNewRequest={onNewRequest} />;
+  if (isLoading) return <Spinner size="sm" className="h-[50vh] container-custom py-20" />;
   return (
-    <section id="contact" className={styles.contact}>
+    <section id="contact">
       <div className="container-custom py-20">
         <div className="text-center mb-16">
           <h2 className="heading-lg mb-4">{t('contactForm.title')}</h2>
