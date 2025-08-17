@@ -30,6 +30,12 @@ export const useFormData = () => {
       } else {
         console.error('Form submission failed:', result.error);
       }
+      // Scroll to the thank-you section (has id="contact") when submission succeeds
+      const el = document.getElementById('contact');
+      if (el) {
+        // give the DOM a tick so layout updates (if any) settle, then scroll
+        requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+      }
     } catch (error) {
       console.error('Unexpected error occurred:', error);
     } finally {
