@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import { useTranslations } from '@/context/LanguageContext';
+import { appInsights } from '@/services/appInsights';
 
 export const ContactMap: React.FC = () => {
   const { t } = useTranslations();
@@ -38,6 +39,12 @@ export const ContactMap: React.FC = () => {
                       url = `https://www.google.com/maps/search/?api=1&query=${encoded}`;
                     }
                     window.open(url, '_blank');
+                    appInsights.trackEvent({
+                      name: 'open_maps',
+                      properties: {
+                        url: url,
+                      },
+                    });
                   }}
                   className="text-rolandGreen font-medium md:text-xl inline-block text-center sm:text-left "
                   aria-label="Open address in Maps"

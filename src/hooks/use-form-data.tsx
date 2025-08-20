@@ -1,4 +1,5 @@
 import { ContactFormSchema, DEFAULT_FORM_VALUES, FormValues } from '@/models/formData';
+import { appInsights } from '@/services/appInsights';
 import { submitForm } from '@/services/form-contact-service';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
@@ -30,14 +31,23 @@ export const useFormData = () => {
       } else {
         console.error('Form submission failed:', result.error);
       }
-      // Scroll to the thank-you section (has id="contact") when submission succeeds
       const el = document.getElementById('contact');
       if (el) {
         // give the DOM a tick so layout updates (if any) settle, then scroll
         requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
       }
+      appInsights.trackEvent({
+        name: 'form_submission',
+        properties: { success: result.success, formData: data },
+      });
     } catch (error) {
       console.error('Unexpected error occurred:', error);
+      appInsights.trackException({
+        exception: error,
+        properties: {
+          error: error.message,
+        },
+      });
     } finally {
       setIsLoading(false);
     }
@@ -45,6 +55,7 @@ export const useFormData = () => {
   const onNewRequest = () => {
     setIsSubmitted(false);
     reset(DEFAULT_FORM_VALUES);
+    appInsights.trackEvent({ name: 'new_form_request' });
   };
 
   return {

@@ -10,12 +10,16 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { Menu } from 'lucide-react';
 import { useTranslations } from '@/context/LanguageContext';
 import { Flag } from './Flag';
+import { appInsights } from '@/services/appInsights';
 
 export const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleLanguageChange = (lang: 'ro' | 'en') => setLanguage(lang);
+  const handleLanguageChange = (lang: 'ro' | 'en') => {
+    setLanguage(lang);
+    appInsights.trackEvent({ name: 'language_change', properties: { selected_language: lang } });
+  };
 
   const navItems = [
     { href: '#about', key: 'about' },
@@ -31,6 +35,7 @@ export const Navbar: React.FC = () => {
     if (window.location.hash) {
       history.replaceState(null, '', window.location.pathname + window.location.search);
     }
+    appInsights.trackEvent({ name: 'on_logo_click' });
   };
 
   return (
