@@ -16,7 +16,6 @@ const getAnonymousUserId = (): string => {
 
     return anonId;
   } catch {
-    // Fallback dacă localStorage nu e disponibil
     console.warn('localStorage not available, using session-only ID');
     return 'anon_' + Math.random().toString(36).substring(2, 18);
   }
@@ -49,7 +48,6 @@ export const appInsights = new ApplicationInsights({
   },
 });
 
-// Telemetry initializer pentru a adăuga anonymous ID la toate evenimentele
 appInsights.addTelemetryInitializer((envelope: ITelemetryItem) => {
   envelope.tags = envelope.tags || {};
   envelope.tags['ai.user.id'] = anonymousUserId;
@@ -58,7 +56,6 @@ appInsights.addTelemetryInitializer((envelope: ITelemetryItem) => {
   envelope.tags['ai.cloud.roleInstance'] = 'browser';
 });
 
-// Inițializează doar dacă avem connection string
 if (appInsightsConnectionString) {
   try {
     appInsights.loadAppInsights();
@@ -71,10 +68,8 @@ if (appInsightsConnectionString) {
   console.warn('App Insights not initialized - missing connection string');
 }
 
-// Export anonymous ID pentru debugging
 export const getAnonymousId = () => anonymousUserId;
 
-// Expune funcția pe window pentru debugging
 if (typeof window !== 'undefined') {
   (window as unknown as Record<string, unknown>).getAnonymousId = getAnonymousId;
   console.log('🆔 Anonymous ID:', anonymousUserId);
