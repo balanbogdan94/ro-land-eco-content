@@ -102,10 +102,20 @@ export const Footer: React.FC = () => {
               &copy; {new Date().getFullYear()} RO Land Organic. {t('footer.copyright')}
             </p>
             <div className="mt-0 flex flex-col sm:flex-row gap-2 sm:gap-0">
-              <a href="#" className="text-sm text-gray-600 hover:text-rolandGreen sm:mr-4">
+              <a
+                href="/assets/footer/confidentiality-policy.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-600 hover:text-rolandGreen sm:mr-4"
+              >
                 {t('footer.privacy')}
               </a>
-              <a href="#" className="text-sm text-gray-600 hover:text-rolandGreen">
+              <a
+                href="/assets/footer/terms-and-conditions.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-600 hover:text-rolandGreen"
+              >
                 {t('footer.terms')}
               </a>
             </div>

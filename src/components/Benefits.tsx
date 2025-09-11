@@ -24,7 +24,7 @@ export const Benefits: React.FC = () => {
   };
 
   return (
-    <section id="benefits">
+    <section id="benefits" className="bg-beige">
       <div className="container-custom py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>

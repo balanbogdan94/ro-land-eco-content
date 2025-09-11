@@ -36,19 +36,39 @@ export const Certifications: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {certKeys.map((key, index) => (
-            <Card key={key} className={styles.certificationCard}>
-              <CardContent className="p-8 text-center">
-                {certIcons[index]}
-                <h3 className="text-xl font-semibold mb-2">
-                  {t(`certifications.items.${key}.title`)}
-                </h3>
-                <p className="text-body text-sm text-gray-700">
-                  {t(`certifications.items.${key}.desc`)}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+          {certKeys.map((key, index) => {
+            // Link doar pentru EU BIO
+            const pdfLink =
+              key === 'eu-bio' ? '/assets/certifications/eu-certificate.pdf' : undefined;
+
+            const CardWrapper = pdfLink ? 'a' : React.Fragment;
+
+            const cardProps = pdfLink
+              ? {
+                  href: pdfLink,
+                  target: '_blank',
+                  rel: 'noopener noreferrer',
+                  className:
+                    'block transition-transform transform hover:scale-105 hover:shadow-xl rounded-lg',
+                }
+              : {};
+
+            return (
+              <CardWrapper key={key} {...cardProps}>
+                <Card className={`${styles.certificationCard} ${pdfLink ? 'cursor-pointer' : ''}`}>
+                  <CardContent className="p-8 text-center">
+                    {certIcons[index]}
+                    <h3 className="text-xl font-semibold mb-2">
+                      {t(`certifications.items.${key}.title`)}
+                    </h3>
+                    <p className="text-body text-sm text-gray-700">
+                      {t(`certifications.items.${key}.desc`)}
+                    </p>
+                  </CardContent>
+                </Card>
+              </CardWrapper>
+            );
+          })}
         </div>
       </div>
     </section>
