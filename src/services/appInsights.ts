@@ -59,8 +59,6 @@ appInsights.addTelemetryInitializer((envelope: ITelemetryItem) => {
 if (appInsightsConnectionString) {
   try {
     appInsights.loadAppInsights();
-    console.log('App Insights initialized successfully');
-    console.log('Connection string:', appInsightsConnectionString.substring(0, 50) + '...');
   } catch (error) {
     console.error('Failed to initialize App Insights:', error);
   }
@@ -72,6 +70,4 @@ export const getAnonymousId = () => anonymousUserId;
 
 if (typeof window !== 'undefined') {
   (window as unknown as Record<string, unknown>).getAnonymousId = getAnonymousId;
-  console.log('🆔 Anonymous ID:', anonymousUserId);
-  console.log('🎯 Run getAnonymousId() in console to get anonymous ID');
 }
