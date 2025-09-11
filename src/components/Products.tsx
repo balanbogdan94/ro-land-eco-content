@@ -20,7 +20,7 @@ const productKeys = [
 export const Products: React.FC = () => {
   const { t } = useTranslations();
   return (
-    <section id="products" className="bg-white">
+    <section id="products" className="bg-gray-50 py-20">
       <div className="container-custom py-20">
         <div className="text-center mb-16">
           <h2 className="heading-lg mb-4">{t('products.title')}</h2>

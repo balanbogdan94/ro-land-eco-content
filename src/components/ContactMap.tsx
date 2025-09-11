@@ -6,7 +6,7 @@ import { appInsights } from '@/services/appInsights';
 export const ContactMap: React.FC = () => {
   const { t } = useTranslations();
   return (
-    <section id="map" className="flex flex-col items-center py-20">
+    <section id="map" className="flex flex-col items-center py-20 bg-gray-50">
       <div>
         <h2 className="heading-lg mb-10">{t('contactMap.title')}</h2>
       </div>
