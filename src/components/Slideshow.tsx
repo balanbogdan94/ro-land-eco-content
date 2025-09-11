@@ -14,7 +14,7 @@ export const Slideshow = () => {
   const { t } = useTranslations();
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
-  const slideCount = 5;
+  const slideCount = 14;
 
   React.useEffect(() => {
     if (!api) {
@@ -35,10 +35,10 @@ export const Slideshow = () => {
         <h2 className="heading-lg mb-4 text-center">{t('slideshow.title')}</h2>
         <Carousel className="w-full" orientation="horizontal" opts={{ loop: true }} setApi={setApi}>
           <CarouselContent className="rounded-2xl">
-            {[1, 2, 3, 4, 5].map((number) => (
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((number) => (
               <CarouselItem key={number} className="p-1 overflow-hidden">
                 <img
-                  src={`/assets/slideshow/Slideshow-${number}.JPG`}
+                  src={`/assets/slideshow/Slideshow-${number}.webp`}
                   alt={`Slide ${number}`}
                   className="aspect-square w-full lg:h-[65vh] object-cover rounded-xl overflow-hidden"
                   loading="lazy"
