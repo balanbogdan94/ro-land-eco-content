@@ -33,9 +33,13 @@ export const Hero: React.FC = () => {
           loop
           playsInline
           preload="auto"
+          poster="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/heroPoster.png"
           className="w-full absolute top-0 left-0 object-cover h-[75vh] sm:h-[80vh] lg:h-[85vh] z-0 pointer-events-none select-none transform translate-z-0 will-change-transform"
         >
-          <source src="./assets/hero/0708.webm" type="video/webm" />
+          <source
+            src="https://rolandorganicstorage1.blob.core.windows.net/assets/video/hero-movie.webm"
+            type="video/webm"
+          />
           {t('hero.noVideoSupport')}
         </video>
 
