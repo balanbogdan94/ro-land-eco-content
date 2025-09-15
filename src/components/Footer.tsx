@@ -100,12 +100,12 @@ export const Footer: React.FC = () => {
               <div className="flex space-x-4 items-center justify-center md:justify-start">
                 {/* EU Organic */}
                 <a
-                  href="/assets/certifications/the_organic_logo_0.webp"
+                  href="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Certificates Photos/the_organic_logo_0.webp"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <img
-                    src="/assets/certifications/the_organic_logo_0.webp"
+                    src="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Certificates Photos/the_organic_logo_0.webp"
                     alt="EU Organic Certification"
                     className="w-12 h-12 object-contain"
                   />
@@ -113,12 +113,12 @@ export const Footer: React.FC = () => {
 
                 {/* GMP */}
                 <a
-                  href="/assets/certifications/gmp_plus_certificate.webp"
+                  href="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Certificates Photos/gmp_plus_certificate.webp"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <img
-                    src="/assets/certifications/gmp_plus_certificate.webp"
+                    src="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Certificates Photos/gmp_plus_certificate.webp"
                     alt="GMP Certification"
                     className="w-12 h-12 object-contain"
                   />
@@ -126,12 +126,12 @@ export const Footer: React.FC = () => {
 
                 {/* HACCP */}
                 <a
-                  href="/assets/certifications/haccp_certification.webp"
+                  href="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Certificates Photos/haccp_certification.webp"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <img
-                    src="/assets/certifications/haccp_certification.webp"
+                    src="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Certificates Photos/haccp_certification.webp"
                     alt="HACCP Certification"
                     className="w-12 h-12 object-contain"
                   />
@@ -149,7 +149,7 @@ export const Footer: React.FC = () => {
             </p>
             <div className="mt-0 flex flex-col sm:flex-row gap-2 sm:gap-0">
               <a
-                href="/assets/footer/confidentiality-policy.pdf"
+                href="https://rolandorganicstorage1.blob.core.windows.net/assets/pdfs/confidentiality-policy.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-gray-600 hover:text-rolandGreen sm:mr-4"
@@ -157,7 +157,7 @@ export const Footer: React.FC = () => {
                 {t('footer.privacy')}
               </a>
               <a
-                href="/assets/footer/terms-and-conditions.pdf"
+                href="https://rolandorganicstorage1.blob.core.windows.net/assets/pdfs/terms-and-conditions.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-gray-600 hover:text-rolandGreen"

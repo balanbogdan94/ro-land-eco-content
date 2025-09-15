@@ -42,7 +42,7 @@ export const Products: React.FC = () => {
                 />
 
                 <img
-                  src="/assets/certifications/the_organic_logo_0.webp"
+                  src="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Certificates Photos/the_organic_logo_0.webp"
                   alt="Organic Certification"
                   className="absolute top-0 left-0 h-12 rounded-tl-lg aspect-square rounded-br-lg"
                 />

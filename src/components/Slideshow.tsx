@@ -16,6 +16,13 @@ export const Slideshow = () => {
   const [current, setCurrent] = useState(0);
   const slideCount = 14;
 
+  // Array cu URL-uri către imagini pe Azure Blob
+  const slideshowImages = Array.from(
+    { length: slideCount },
+    (_, i) =>
+      `https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Slideshow/Slideshow-${i + 1}.webp`
+  );
+
   React.useEffect(() => {
     if (!api) {
       return;
@@ -35,11 +42,11 @@ export const Slideshow = () => {
         <h2 className="heading-lg mb-4 text-center">{t('slideshow.title')}</h2>
         <Carousel className="w-full" orientation="horizontal" opts={{ loop: true }} setApi={setApi}>
           <CarouselContent className="rounded-2xl">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].map((number) => (
-              <CarouselItem key={number} className="p-1 overflow-hidden">
+            {slideshowImages.map((url, index) => (
+              <CarouselItem key={index} className="p-1 overflow-hidden">
                 <img
-                  src={`/assets/slideshow/Slideshow-${number}.webp`}
-                  alt={`Slide ${number}`}
+                  src={url}
+                  alt={`Slide ${index + 1}`}
                   className="aspect-square w-full lg:h-[65vh] object-cover rounded-xl overflow-hidden"
                   loading="lazy"
                 />

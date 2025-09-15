@@ -9,19 +9,19 @@ export const Certifications: React.FC = () => {
   const { t } = useTranslations();
   const certIcons = [
     <img
-      src="/assets/certifications/the_organic_logo_0.webp"
+      src="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Certificates Photos/the_organic_logo_0.webp"
       alt="EU Organic Logo"
       className="w-20 h-20 mx-auto mb-4 rounded-lg"
       key="eu-bio"
     />,
     <img
-      src="/assets/certifications/haccp_certification.webp"
+      src="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Certificates Photos/haccp_certification.webp"
       alt="HACCP Certification"
       className="w-20 h-20 mx-auto mb-4 rounded-lg"
       key="haccp"
     />,
     <img
-      src="/assets/certifications/gmp_plus_certificate.webp"
+      src="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Certificates Photos/gmp_plus_certificate.webp"
       alt="GMP Certification"
       className="w-auto h-20 mx-auto mb-4 rounded-lg"
       key="gmp"
@@ -39,7 +39,9 @@ export const Certifications: React.FC = () => {
           {certKeys.map((key, index) => {
             // Link doar pentru EU BIO
             const pdfLink =
-              key === 'eu-bio' ? '/assets/certifications/eu-certificate.pdf' : undefined;
+              key === 'eu-bio'
+                ? 'https://rolandorganicstorage1.blob.core.windows.net/assets/pdfs/eu-certificate.pdf'
+                : undefined;
 
             const CardWrapper = pdfLink ? 'a' : React.Fragment;
 

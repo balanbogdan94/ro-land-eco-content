@@ -10,7 +10,7 @@ export const About: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className={styles.imageWrapper}>
             <img
-              src="/assets/aboutUs/aboutUsBright.JPG"
+              src="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/About Us/aboutUsBright.webp"
               alt={t('about.imageAlt')}
               className={styles.image}
             />

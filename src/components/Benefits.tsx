@@ -52,7 +52,7 @@ export const Benefits: React.FC = () => {
 
           <div className={'rounded-lg overflow-hidden shadow-xl bg-white'}>
             <img
-              src="/assets/benefits/transportMapPhoto.webp"
+              src="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Benefits - Transport Map/transportMapPhoto.webp"
               alt={t('benefits.imageAlt')}
               className={'w-full h-full object-contain'}
               onClick={handleImageClick}

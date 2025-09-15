@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
           loop
           playsInline
           preload="auto"
-          poster="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/heroPoster.png"
+          poster="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Hero Poster/heroPoster.webp"
           className="w-full absolute top-0 left-0 object-cover h-[75vh] sm:h-[80vh] lg:h-[85vh] z-0 pointer-events-none select-none transform translate-z-0 will-change-transform"
         >
           <source
