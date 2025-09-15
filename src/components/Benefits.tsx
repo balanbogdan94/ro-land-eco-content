@@ -69,7 +69,7 @@ export const Benefits: React.FC = () => {
           onClick={handleCloseModal}
         >
           <img
-            src="/assets/benefits/transportMapPhoto.webp"
+            src="https://rolandorganicstorage1.blob.core.windows.net/assets/pictures/Benefits - Transport Map/transportMapPhoto.webp"
             alt={t('benefits.imageAlt')}
             className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-zoom-out"
           />
