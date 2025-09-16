@@ -22,10 +22,10 @@ export const About: React.FC = () => {
             <p className="text-body text-center md:text-left lg:text-left mb-4 sm:text-balance font-bold">
               {t('about.p1')}
             </p>
-            <p className="text-body text-center md:text-left lg:text-left mb-16 sm:text-balance">
+            <p className="text-body text-center md:text-left lg:text-left mb-8 sm:text-balance">
               {t('about.p2')}
             </p>
-            <p className="text-body text-center md:text-left lg:text-left mb-4 sm:text-balance font-semibold">
+            <p className="text-body text-center md:text-left lg:text-left mb-8 sm:text-balance font-semibold">
               {t('about.p3')}
             </p>
             <p className="text-body text-center md:text-left lg:text-left mb-4 sm:text-balance">
