@@ -40,7 +40,7 @@ export default tseslint.config({
 
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     '@typescript-eslint/no-unused-vars': 'error',
-    'max-lines': ['error', { max: 150, skipComments: true }],
+    'max-lines': ['error', { max: 200, skipComments: true }],
     'max-params': ['error', { max: 5 }],
     'import/no-unresolved': 'error',
     'import/no-default-export': 'error',

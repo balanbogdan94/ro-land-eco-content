@@ -8,6 +8,7 @@ import {
   type CarouselApi,
 } from './ui/carousel';
 import { useTranslations } from '@/context/LanguageContext';
+import { SlideshowModal } from './SlideshowModal';
 import styles from './Slideshow.module.css';
 
 export const Slideshow = () => {
@@ -15,7 +16,7 @@ export const Slideshow = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalImageUrl, setModalImageUrl] = useState('');
+  const [modalImageIndex, setModalImageIndex] = useState(0);
   const slideCount = 14;
 
   // Array cu URL-uri către imagini pe Azure Blob
@@ -39,13 +40,14 @@ export const Slideshow = () => {
   }, [api]);
 
   const handleImageClick = (imageUrl: string) => {
-    setModalImageUrl(imageUrl);
+    const index = slideshowImages.indexOf(imageUrl);
+    setModalImageIndex(index);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-    setModalImageUrl('');
+    setModalImageIndex(0);
   };
 
   return (
@@ -72,10 +74,9 @@ export const Slideshow = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-
-          {/* Dots positioned absolutely at bottom of image area */}
-          <div className="absolute bottom-20 left-1/2 transform -translate-x-1/2 z-20">
-            <div className="flex gap-2 bg-black/50 backdrop-blur-sm rounded-full px-3 py-2">
+          <div className="flex justify-between md:justify-center md:gap-10 items-center mt-1">
+            <CarouselPrevious className="relative transform-none bg-black/50 backdrop-blur-sm border-white/30 text-white hover:bg-black/70 hover:text-white w-12 h-12" />
+            <div className="flex gap-2 bg-black/50 backdrop-blur-sm rounded-full px-3 py-2 md:py-2 justify-center items-center">
               {Array.from({ length: slideCount }).map((_, index) => (
                 <button
                   key={index}
@@ -87,29 +88,19 @@ export const Slideshow = () => {
                 />
               ))}
             </div>
-          </div>
-
-          {/* Navigation arrows below the image */}
-          <div className="flex justify-center gap-20 mt-4">
-            <CarouselPrevious className="relative transform-none bg-black/50 backdrop-blur-sm border-white/30 text-white hover:bg-black/70 hover:text-white w-12 h-12" />
             <CarouselNext className="relative transform-none bg-black/50 backdrop-blur-sm border-white/30 text-white hover:bg-black/70 hover:text-white w-12 h-12" />
           </div>
         </Carousel>
       </div>
 
-      {/* Modal */}
-      {isModalOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50"
-          onClick={handleCloseModal}
-        >
-          <img
-            src={modalImageUrl}
-            alt="Slideshow Image Enlarged"
-            className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.5)] cursor-zoom-out"
-          />
-        </div>
-      )}
+      <SlideshowModal
+        isOpen={isModalOpen}
+        images={slideshowImages}
+        currentIndex={modalImageIndex}
+        slideCount={slideCount}
+        onClose={handleCloseModal}
+        onSelectImage={setModalImageIndex}
+      />
     </div>
   );
 };
