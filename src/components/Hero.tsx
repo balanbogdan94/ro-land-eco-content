@@ -25,7 +25,7 @@ const WaveSVG = () => (
 export const Hero: React.FC = () => {
   const { t } = useTranslations();
   return (
-    <section className="relative text-white h-screen ">
+    <section className="relative text-white h-auto ">
       <div className="px-4 sm:px-6 lg:px-8 bg-cover bg-center h-[75vh] sm:h-[80vh] lg:h-[85vh] relative py-24 md:py-32 ">
         <video
           autoPlay
