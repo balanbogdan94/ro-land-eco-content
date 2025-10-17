@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Certifications.module.css';
 import { Card, CardContent } from '@/components/ui/card';
 import { useTranslations } from '@/context/LanguageContext';
 
@@ -28,7 +27,7 @@ export const Certifications: React.FC = () => {
     />,
   ];
   return (
-    <section id="certifications" className={styles.certifications}>
+    <section id="certifications" className="bg-gray-50 py-20">
       <div className="container-custom py-20">
         <div className="text-center mb-16">
           <h2 className="heading-lg mb-4">{t('certifications.title')}</h2>
@@ -57,7 +56,7 @@ export const Certifications: React.FC = () => {
 
             return (
               <CardWrapper key={key} {...cardProps}>
-                <Card className={`${styles.certificationCard} ${pdfLink ? 'cursor-pointer' : ''}`}>
+                <Card className={pdfLink ? 'cursor-pointer' : ''}>
                   <CardContent className="p-8 text-center">
                     {certIcons[index]}
                     <h3 className="text-xl font-semibold mb-2">

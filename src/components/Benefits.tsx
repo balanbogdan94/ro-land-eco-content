@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Check } from 'lucide-react';
 import { useTranslations } from '@/context/LanguageContext';
+import { WaveDivider } from './ui/wave-divider';
 
 const benefitKeys = [
   'certification',
@@ -24,7 +25,7 @@ export const Benefits: React.FC = () => {
   };
 
   return (
-    <section id="benefits" className="bg-beige">
+    <section id="benefits" className="bg-beige relative">
       <div className="container-custom py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div>
@@ -75,6 +76,7 @@ export const Benefits: React.FC = () => {
           />
         </div>
       )}
+      <WaveDivider flip height={1} primaryColor="#0B8A3A" secondaryColor="#F9FAFB" />
     </section>
   );
 };

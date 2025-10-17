@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useTranslations } from '@/context/LanguageContext';
+import { WaveDivider } from './ui/wave-divider';
 
 const productKeys = [
   'wheat-bread',
@@ -20,8 +21,8 @@ const productKeys = [
 export const Products: React.FC = () => {
   const { t } = useTranslations();
   return (
-    <section id="products" className="bg-gray-50 py-20">
-      <div className="container-custom py-20">
+    <section id="products" className="bg-gray-50 py-20 relative">
+      <div className="container-custom">
         <div className="text-center mb-16">
           <h2 className="heading-lg mb-4">{t('products.title')}</h2>
           <p className="text-body max-w-3xl mx-auto text-balance">{t('products.intro')}</p>
@@ -64,6 +65,7 @@ export const Products: React.FC = () => {
           </a>
         </div>
       </div>
+      <WaveDivider position="bottom" height={3} primaryColor="#0B8A3A" secondaryColor="#F5F2ED" />
     </section>
   );
 };

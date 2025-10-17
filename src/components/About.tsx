@@ -1,27 +1,12 @@
 import React from 'react';
 import { useTranslations } from '@/context/LanguageContext';
+import { WaveDivider } from './ui/wave-divider';
 
-const WaveSVG = () => (
-  <svg
-    id="visual"
-    viewBox="0 163 960 378"
-    className="absolute top-0 left-0 w-full max-h-10 overflow-hidden z-20 rotate-180"
-    xmlns="http://www.w3.org/2000/svg"
-    preserveAspectRatio="none"
-    version="1.1"
-  >
-    <path
-      d="M0 278L80 275.2C160 272.3 320 266.7 480 247.5C640 228.3 800 195.7 880 179.3L960 163L960 541L880 541C800 541 640 541 480 541C320 541 160 541 80 541L0 541Z"
-      fill="#ffffff"
-    ></path>
-  </svg>
-);
 export const About: React.FC = () => {
   const { t } = useTranslations();
   return (
     <section id="about" className="bg-beige relative overflow-hidden pt-8">
-      {/* Decorative wave at the top of the section */}
-      <WaveSVG />
+      <WaveDivider position="top" height={4} primaryColor="#F5F2ED" secondaryColor="#ffffff" />
       <div className="container-custom py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="rounded-lg overflow-hidden shadow-xl h-full">
@@ -50,6 +35,7 @@ export const About: React.FC = () => {
           </div>
         </div>
       </div>
+      <WaveDivider position="bottom" height={4} primaryColor="#F5F2ED" secondaryColor="#F9FAFB" />
     </section>
   );
 };
