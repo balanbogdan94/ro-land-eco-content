@@ -2,17 +2,21 @@ import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import { useTranslations } from '@/context/LanguageContext';
 import { appInsights } from '@/services/appInsights';
+import { WaveDivider } from './ui/wave-divider';
 
 export const ContactMap: React.FC = () => {
   const { t } = useTranslations();
   return (
-    <section id="map" className="flex flex-col items-center py-20 bg-gray-50">
+    <section
+      id="map"
+      className="relative flex flex-col items-center py-20 bg-gray-50 shadow-[0_28px_30px_-10px_rgba(11,138,58,0.25)]"
+    >
+      <WaveDivider position="top" height={4} primaryColor="#0B8A3A" secondaryColor="#F7FAFC" />
       <div>
         <h2 className="heading-lg mb-10">{t('contactMap.title')}</h2>
       </div>
       <div className="container-custom w-full">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 md:gap-24">
-          {/* Pe mobil: harta sus, datele jos. Pe desktop: datele la stânga, harta la dreapta, la extremități */}
           <div className="flex flex-col justify-center items-center md:items-start gap-6 md:gap-10 w-full md:max-w-[400px] text-base md:text-lg font-sans md:order-1">
             <div className="flex flex-col md:flex-row items-center md:items-center gap-1 md:gap-4 w-full">
               <MapPin className="text-rolandGreen min-w-6 min-h-6 w-6 h-6 md:w-7 md:h-7" />
@@ -24,8 +28,6 @@ export const ContactMap: React.FC = () => {
                   onClick={() => {
                     const address = t('footer.contact.address');
                     const encoded = encodeURIComponent(address);
-                    // If later you add coordinates in translations (e.g. footer.contact.lat/lng), plug them here.
-                    // Use userAgent detection to choose best handler.
                     const ua = navigator.userAgent;
                     let url: string;
                     if (/iPad|iPhone|Macintosh/.test(ua) && 'standalone' in window) {

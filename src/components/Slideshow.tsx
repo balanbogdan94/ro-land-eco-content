@@ -9,7 +9,6 @@ import {
 } from './ui/carousel';
 import { useTranslations } from '@/context/LanguageContext';
 import { SlideshowModal } from './SlideshowModal';
-import styles from './Slideshow.module.css';
 import { getSlideshowImageUrl, NUMBER_OF_SLIDESHOW_IMAGES } from '@/models/slideshow';
 
 export const Slideshow = () => {
@@ -34,9 +33,18 @@ export const Slideshow = () => {
   const toggleModal = () => setIsModalOpen((prev) => !prev);
 
   return (
-    <div className={styles.slideshowWrapperOuter}>
-      <div className={`container-custom ${styles.slideshowWrapperInner}`}>
+    <div className="w-full bg-beige py-28 relative shadow-[0_28px_40px_-10px_rgba(11,138,58,0.2)]">
+      <svg
+        className="absolute top-0 left-0 w-full h-32"
+        viewBox="0 0 960 16"
+        preserveAspectRatio="none"
+      >
+        <path d="M0,16 Q480,0 960,16 L960,0 L0,0 Z" fill="#0B8A3A" />
+        <path d="M0,15.5 Q480,0 960,14 L960,0 L0,0 Z" fill="#F9FAFB" />
+      </svg>
+      <div className="container-custom max-w-7xl mx-auto px-4">
         <h2 className="heading-lg mb-4 text-center">{t('slideshow.title')}</h2>
+        <h3 className="heading-sm mb-4 text-center">{t('slideshow.subtitle')}</h3>
         <Carousel
           className="w-full relative"
           orientation="horizontal"
@@ -75,7 +83,6 @@ export const Slideshow = () => {
           </div>
         </Carousel>
       </div>
-
       {isModalOpen && (
         <SlideshowModal isOpen={isModalOpen} currentIndex={current} onClose={toggleModal} />
       )}

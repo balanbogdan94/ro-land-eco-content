@@ -32,15 +32,15 @@ export const ContactForm: React.FC = () => {
   }, [isSubmitted, onNewRequest, isLoading]);
 
   return (
-    <section id="contact">
-      <div className="container-custom py-20">
+    <section id="contact" className="bg-gray-50 ">
+      <div className="container-custom pt-20 ">
         <div className="text-center mb-16">
           <h2 className="heading-lg mb-4">{t('contactForm.title')}</h2>
-          <p className="text-body mx-auto">{t('contactForm.description')}</p>
+          <p className="text-body mx-auto text-balance">{t('contactForm.description')}</p>
           {renderContent() ?? (
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 my-10 py-12 bg-white rounded-2xl shadow-2xl px-6 md:px-12 lg:px-20 border-t-8 border-green-600"
             >
               <div className="space-y-2">
                 <Label htmlFor="name" className="block text-center md:text-left">
@@ -83,7 +83,7 @@ export const ContactForm: React.FC = () => {
               </div>
               <div className="space-y-2 md:col-span-2">
                 <ProductSelect control={control} errors={errors} />
-                <Label className="block text-center md:text-left">
+                <Label className="block text-center md:text-left text-sm italic text-gray-500">
                   {t('contactForm.quantity')}
                 </Label>
                 <Controller

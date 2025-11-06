@@ -27,7 +27,7 @@ export const Certifications: React.FC = () => {
     />,
   ];
   return (
-    <section id="certifications" className="bg-gray-50 py-20">
+    <section id="certifications" className="bg-gray-50">
       <div className="container-custom py-20">
         <div className="text-center mb-16">
           <h2 className="heading-lg mb-4">{t('certifications.title')}</h2>
@@ -36,7 +36,6 @@ export const Certifications: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {certKeys.map((key, index) => {
-            // Link doar pentru EU BIO
             const pdfLink =
               key === 'eu-bio'
                 ? 'https://rolandorganicstorage1.blob.core.windows.net/assets/pdfs/eu-certificate.pdf'
